@@ -7,130 +7,106 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		
 		<style>
-			/* --- 1. DARK THEME FIXES (Solves Invisible Text) --- */
-			body, #main, #footer {
-				background-color: #1a1b26; /* Deep Cyber Blue-Grey */
-				color: #c0c0c0; /* Light Grey Text */
+			/* --- 1. SIDEBAR BACKGROUND OVERRIDE --- */
+			#header {
+				background-image: url("assets/css/images/overlay.png"), url("images/sidebar-bg.jpg");
+				background-position: top left, center center;
+				background-size: auto, cover;
+				background-repeat: repeat, no-repeat;
 			}
-			
-			/* Force Headings to White/Cyan */
-			h1, h2, h3, h4, h5, h6, strong, b {
-				color: #ffffff;
-			}
-			
-			/* Links and Accents */
-			a { color: #00e5ff; border-bottom-color: rgba(0, 229, 255, 0.5); }
-			a:hover { border-bottom-color: transparent; color: #fff; }
-			
-			/* Buttons */
-			.button { border-color: #00e5ff; color: #ffffff !important; }
-			.button:hover { background-color: rgba(0, 229, 255, 0.1); border-color: #00e5ff; }
-			.button.primary { background-color: #00e5ff; color: #000 !important; font-weight: 800; }
 
-			/* --- 2. UNIFORM TILE SIZES --- */
-			.tech-stack-container {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 30px;
-				justify-content: center;
-				margin-top: 2em;
+			/* --- 2. WHITE THEME & VISIBILITY --- */
+			body { background-color: #ffffff; color: #555555; }
+			#main { background-color: #ffffff; margin-left: 35%; max-width: 65%; }
+			h1, h2, h3, h4, h5, h6, strong, b { color: #333333; }
+			#header h1, #header h2, #header p, #header strong { color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+			#header .image.avatar img { border: 3px solid #00acc1; }
+
+			/* --- 3. CYAN THEME --- */
+			a { color: #00acc1; border-bottom-color: rgba(0, 172, 193, 0.5); }
+			a:hover { border-bottom-color: transparent; color: #00838f; }
+			.button { border-color: #00acc1; color: #00acc1 !important; }
+			.button:hover { background-color: rgba(0, 172, 193, 0.1); border-color: #00838f; color: #00838f !important; }
+			.button.primary { background-color: #00acc1; color: #ffffff !important; border-color: #00acc1; }
+			.button.primary:hover { background-color: #00838f; }
+
+			/* --- 4. ANIMATED SALUTATION --- */
+			.greeting-container { display: block; font-size: 0.8em; color: #00acc1; font-weight: 600; margin-bottom: 0.2em; text-transform: uppercase; letter-spacing: 2px; }
+			.greeting-wrapper { display: inline-block; overflow: hidden; vertical-align: bottom; height: 1.2em; }
+			.greeting-word { display: block; height: 1.2em; animation: slide-up 6s cubic-bezier(0.23, 1, 0.32, 1) infinite; color: #00acc1; }
+			@keyframes slide-up {
+				0%, 25% { transform: translateY(0); }
+				33%, 58% { transform: translateY(-1.2em); }
+				66%, 91% { transform: translateY(-2.4em); }
+				100% { transform: translateY(0); }
 			}
-			
-			.skill-wrapper {
-				width: 45%; /* Two per row */
-				min-width: 300px;
-				display: flex;
-				flex-direction: column;
-				cursor: pointer;
-			}
-			
-			/* Force all cards to same height */
+
+			/* --- 5. COMPACT SKILL CARDS --- */
+			.tech-stack-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 2em; }
+			.skill-wrapper { width: 45%; max-width: 320px; display: flex; flex-direction: column; cursor: pointer; }
 			.code-card {
-				background: #0f0f14; /* Darker card bg */
-				border-radius: 8px;
-				padding: 20px;
-				font-family: 'Consolas', 'Monaco', monospace;
-				font-size: 0.8em;
-				color: #d4d4d4;
-				border-left: 5px solid #555;
-				box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-				transition: all 0.3s ease;
-				flex-grow: 1; /* Stretches card to fill height */
-				display: flex;
-				flex-direction: column;
-				justify-content: center; /* Centers content vertically */
+				background: #1e1e1e; border-radius: 6px; padding: 15px; font-family: 'Consolas', 'Monaco', monospace;
+				font-size: 0.7em; color: #d4d4d4; border-left: 4px solid #555; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+				transition: all 0.3s ease; line-height: 1.4em;
 			}
-			
-			/* Hover Effects */
-			.skill-wrapper:hover .code-card { 
-				transform: translateY(-5px); 
-				border-color: #00e5ff; 
-				box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
-			}
-			
-			.skill-label {
-				margin-top: 10px;
-				text-align: center;
-				font-weight: 700;
-				color: #00e5ff;
-				text-transform: uppercase;
-				letter-spacing: 2px;
-				font-size: 0.85em;
-			}
+			.skill-wrapper:hover .code-card { transform: translateY(-5px); border-color: #00acc1; box-shadow: 0 10px 20px rgba(0, 172, 193, 0.2); }
+			.skill-label { margin-top: 8px; text-align: center; font-weight: 700; color: #00acc1; text-transform: uppercase; letter-spacing: 1px; font-size: 0.75em; }
 
-			/* --- 3. EXCEL & SKILL STYLES --- */
-			.excel-header { background: #1D6F42; color: white; padding: 5px; font-weight: bold; margin: -20px -20px 10px -20px; }
-			.excel-sheet { display: grid; grid-template-columns: 30px 1fr 1fr; border: 1px solid #333; background: #222; }
-			.excel-cell { padding: 5px; border: 1px solid #444; color: #eee; }
+			/* Card Specifics */
+			.excel-header { background: #1D6F42; color: white; padding: 4px; font-weight: bold; margin: -15px -15px 10px -15px; font-size: 1.1em; }
+			.excel-sheet { display: grid; grid-template-columns: 25px 1fr 1fr; border: 1px solid #333; background: #222; }
+			.excel-cell { padding: 2px 4px; border: 1px solid #444; color: #eee; }
 			.excel-row-head { background: #333; text-align: center; }
-			.excel-formula { background: #333; padding: 5px; margin-top: 10px; font-family: monospace; border: 1px solid #444; }
-
-			/* Scope (Controls) */
-			.scope-grid {
-				background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px);
-				background-size: 20px 20px; height: 60px; width: 100%; position: relative; margin: 10px 0;
-			}
-			.scope-line {
-				position: absolute; top: 50%; width: 100%; height: 2px; background: #00e5ff;
-				box-shadow: 0 0 8px #00e5ff; animation: stabilize 3s infinite ease-out;
-			}
+			.excel-formula { background: #333; padding: 3px; margin-top: 5px; font-family: monospace; border: 1px solid #444; color: #fff; }
+			.scope-grid { background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 15px 15px; height: 40px; width: 100%; position: relative; margin: 5px 0; }
+			.scope-line { position: absolute; top: 50%; width: 100%; height: 2px; background: #00acc1; box-shadow: 0 0 5px #00acc1; animation: stabilize 3s infinite ease-out; }
 			@keyframes stabilize { 0% {transform: scaleY(10);} 100% {transform: scaleY(1);} }
-
-			/* ROS Terminal */
-			.ros-terminal { color: #00e5ff; }
+			.ros-terminal { color: #00acc1; }
 			.ros-log { animation: blink 2s infinite; }
 			@keyframes blink { 50% { opacity: 0; } }
+			
+			/* Language Colors */
+			.card-python { border-left-color: #3572A5; }
+			.card-cpp    { border-left-color: #f34b7d; }
+			.card-ros    { border-left-color: #22b455; }
+			.card-control{ border-left-color: #00acc1; }
+			.card-pm     { border-left-color: #0052cc; }
+			.card-excel  { border-left-color: #1D6F42; }
 
-			/* --- 4. ANIMATED GREETING --- */
-			.greeting-container { display: inline-block; height: 1.2em; overflow: hidden; vertical-align: bottom; }
-			.greeting-wrapper { display: block; animation: slide-up 6s cubic-bezier(0.23, 1, 0.32, 1) infinite; }
-			.greeting-word { display: block; height: 1.2em; color: #00e5ff; font-weight: 700; }
-			@keyframes slide-up { 
-				0%, 25% { transform: translateY(0); } 
-				33%, 58% { transform: translateY(-1.2em); } 
-				66%, 91% { transform: translateY(-2.4em); } 
-				100% { transform: translateY(0); } 
-			}
-
-			/* --- 5. MODALS --- */
+			/* --- 6. MODALS --- */
 			.modal-overlay {
 				position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-				background: rgba(0, 0, 0, 0.9);
+				background: rgba(255, 255, 255, 0.98); /* White overlay */
 				display: none; justify-content: center; align-items: center; z-index: 10000;
 				backdrop-filter: blur(5px);
+				overflow-y: auto; /* Allow scrolling if modal is tall */
 			}
 			.modal-content {
-				background: #1a1b26; border: 1px solid #00e5ff; padding: 40px;
-				border-radius: 10px; max-width: 600px; width: 90%; color: #fff;
-				box-shadow: 0 0 40px rgba(0, 229, 255, 0.2);
+				background: #ffffff; border: 1px solid #00acc1; padding: 40px;
+				border-radius: 10px; max-width: 700px; width: 90%; color: #555;
+				box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+				position: relative;
+				margin: 20px 0;
 			}
-			.modal-close { position: absolute; top: 15px; right: 20px; font-size: 2em; cursor: pointer; color: #00e5ff; }
-			.modal-h2 { color: #00e5ff; border-bottom: 1px solid #333; padding-bottom: 10px; }
-			.modal-tech { background: rgba(0,229,255,0.1); color: #00e5ff; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-top: 15px; font-family: monospace; }
+			.modal-close { position: absolute; top: 15px; right: 20px; font-size: 2em; cursor: pointer; color: #00acc1; }
+			.modal-h2 { color: #00acc1; border-bottom: 2px solid #eee; padding-bottom: 15px; font-weight: 800; font-size: 1.5em; margin-bottom: 20px; }
+			.modal-h3 { color: #333; margin-top: 25px; font-weight: 700; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px; }
+			.modal-p { font-size: 1em; line-height: 1.6; color: #666; margin-bottom: 10px; }
+			.modal-tech { background: rgba(0, 172, 193, 0.1); color: #00838f; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-top: 15px; font-family: monospace; font-size: 0.9em; font-weight: bold; }
 			
-			/* Mobile Responsiveness */
+			/* Modal Images Section */
+			.modal-images {
+				display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; padding-bottom: 10px;
+			}
+			.modal-img-placeholder {
+				width: 150px; height: 100px; background: #eee; border-radius: 5px; flex-shrink: 0;
+				display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8em;
+				border: 1px dashed #ccc;
+			}
+
 			@media screen and (max-width: 736px) {
-				.skill-wrapper { width: 100%; }
+				.skill-wrapper { width: 100%; max-width: 100%; }
+				#main { margin-left: 0; max-width: 100%; }
 			}
 		</style>
 	</head>
@@ -145,9 +121,9 @@
 						Project Manager<br />
 					</h1>
 					<br />
-					<h5 style="color: rgba(255, 255, 255, 0.7);">
-						Bridging <span style="color: #00e5ff;">Steel</span> (Mech) <br />
-						and <span style="color: #00e5ff;">Silicon</span> (AI)
+					<h5 style="color: rgba(255, 255, 255, 0.8);">
+						Bridging <span style="color: #00acc1;">Steel</span> (Mech) <br />
+						and <span style="color: #00acc1;">Silicon</span> (AI)
 					</h5>
 				</div>
 				<footer id="footer">
@@ -169,13 +145,13 @@
 				<section id="one">
 						<header class="major">
 							<h2>
-								<span class="greeting-container">
+								<div class="greeting-container">
 									<span class="greeting-wrapper">
-										<span class="greeting-word">Hi,</span>
-										<span class="greeting-word">Hallo,</span>
+										<span class="greeting-word">Hello,</span>
+										<span class="greeting-word">Welcome,</span>
 										<span class="greeting-word">Hola,</span>
 									</span>
-								</span>
+								</div>
 								Engineered from Steel to Silicon
 							</h2>
 						</header>
@@ -188,22 +164,22 @@
 					</section>
 
 				<section id="two">
-						<h2>Selected Works</h2>
+						<h2>Selected Projects</h2>
 						<div class="row">
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="https://via.placeholder.com/600x400/111/fff?text=AMR+Project" alt="" /></a>
-								<h3>Autonomous Mobile Robot</h3>
-								<p><b>ROS2 & SLAM:</b> Custom navigation stack for unstructured environments. Reduced latency by 30%.</p>
+								<a href="#" class="image fit thumb"><img src="https://via.placeholder.com/600x400/eee/555?text=Omnidirectional+Robot" alt="" /></a>
+								<h3>Holonomic Omnidirectional Robot</h3>
+								<p><b>ROS2 & Kinematics:</b> Designed optimal kinematic models for mobile manipulation tasks.</p>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="https://via.placeholder.com/600x400/222/fff?text=Robotic+Arm" alt="" /></a>
-								<h3>6-DOF Manipulator</h3>
-								<p><b>C++ & Kinematics:</b> Designed IK solvers improving pick-and-place precision by 15% in simulation.</p>
+								<a href="#" class="image fit thumb"><img src="https://via.placeholder.com/600x400/eee/555?text=SPM+Automation" alt="" /></a>
+								<h3>SPM Automation Logic</h3>
+								<p><b>C++ & Controls:</b> Engineered control logic for Special Purpose Machines, reducing cycle time by 10%.</p>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="https://via.placeholder.com/600x400/333/fff?text=Computer+Vision" alt="" /></a>
-								<h3>Vision QC System</h3>
-								<p><b>Python & OpenCV:</b> Automated quality control using CNNs with 98% accuracy.</p>
+								<a href="#" class="image fit thumb"><img src="https://via.placeholder.com/600x400/eee/555?text=AI+Decision+Models" alt="" /></a>
+								<h3>AI Decision Models</h3>
+								<p><b>Python & ML:</b> Developed automated decision-making algorithms improving accuracy by 10%.</p>
 							</article>
 						</div>
 						<ul class="actions">
@@ -220,7 +196,7 @@
 							<div class="skill-wrapper" onclick="openModal('modal-ros')">
 								<div class="code-card ros-terminal">
 									<div class="comment"># ROS2 Architecture</div>
-									<span class="kw">user@bot:~$</span> ros2 launch nav.py<br><br>
+									<span class="kw">user@bot:~$</span> ros2 launch nav.py<br>
 									[<span class="type">INFO</span>] [lidar]: <span class="str">Active</span><br>
 									[<span class="type">INFO</span>] [slam]: Map Updated<br>
 									<span class="ros-log">_</span>
@@ -229,18 +205,18 @@
 							</div>
 
 							<div class="skill-wrapper" onclick="openModal('modal-python')">
-								<div class="code-card">
+								<div class="code-card card-python">
 									<div class="comment"># Python: AI & CV</div>
 									<span class="kw">class</span> <span class="type">Engineer</span>:<br>
 									&nbsp;&nbsp;<span class="kw">def</span> <span class="func">deploy</span>(self):<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;stack = [<span class="str">"PyTorch"</span>, <span class="str">"OpenCV"</span>]<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;stack = [<span class="str">"PyTorch"</span>]<br>
 									&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"Ready"</span>
 								</div>
 								<div class="skill-label">AI & Prototyping</div>
 							</div>
 
 							<div class="skill-wrapper" onclick="openModal('modal-cpp')">
-								<div class="code-card">
+								<div class="code-card card-cpp">
 									<div class="comment">// C++: Real-time</div>
 									<span class="kw">struct</span> <span class="type">Arm</span> { <span class="kw">int</span> dof=6; };<br>
 									<span class="kw">void</span> <span class="func">solveIK</span>() {<br>
@@ -251,35 +227,34 @@
 							</div>
 
 							<div class="skill-wrapper" onclick="openModal('modal-control')">
-								<div class="code-card">
+								<div class="code-card card-control">
 									<div class="comment"># PID Tuning</div>
 									<div style="display:flex; justify-content:space-between;">
 										<span>Kp:1.2</span> <span>Ki:0.05</span>
 									</div>
 									<div class="scope-grid"><div class="scope-line"></div></div>
-									<div style="color: #00e5ff;">Status: STABLE</div>
+									<div style="color: #00acc1;">Status: STABLE</div>
 								</div>
 								<div class="skill-label">Control Systems</div>
 							</div>
 
 							<div class="skill-wrapper" onclick="openModal('modal-pm')">
-								<div class="code-card" style="background: #eef; color: #333;">
+								<div class="code-card card-pm" style="background: #eef; color: #333;">
 									<div style="margin-bottom: 5px;">
 										<span style="background:#ccc; padding:2px;">JIRA-101</span>
 										<span style="float:right; background:green; color:white; padding:2px;">DONE</span>
 									</div>
-									<h4 style="color:#333; margin:0;">MVP Launch</h4>
+									<h4 style="color:#333; margin:0; font-size:1.1em;">MVP Launch</h4>
 									<ul style="padding-left:15px; margin:5px 0;">
 										<li>Sprint Planning</li>
-										<li>Risk Assessment</li>
 									</ul>
 								</div>
 								<div class="skill-label">Agile Management</div>
 							</div>
 
 							<div class="skill-wrapper" onclick="openModal('modal-excel')">
-								<div class="code-card" style="padding:0; overflow:hidden;">
-									<div class="excel-header">Data_Analysis.xlsx</div>
+								<div class="code-card card-excel" style="padding:0; overflow:hidden; background: #222;">
+									<div class="excel-header">Data.xlsx</div>
 									<div class="excel-sheet">
 										<div class="excel-cell excel-row-head">1</div>
 										<div class="excel-cell">VLOOKUP</div>
@@ -287,7 +262,7 @@
 										
 										<div class="excel-cell excel-row-head">2</div>
 										<div class="excel-cell">PowerBI</div>
-										<div class="excel-cell" style="color:#0f0;">CONNECTED</div>
+										<div class="excel-cell" style="color:#0f0;">LINKED</div>
 									</div>
 									<div class="excel-formula" style="margin:5px;">=PIVOT(A:B)</div>
 								</div>
@@ -312,12 +287,102 @@
 					</section>
 			</div>
 
-		<div id="modal-ros" class="modal-overlay" onclick="closeModal(event)"><div class="modal-content"><span class="modal-close" onclick="forceClose('modal-ros')">&times;</span><h2 class="modal-h2">Warehouse AMR</h2><p>Designed a ROS2 navigation stack with custom behavior trees to handle dynamic obstacles in a warehouse.</p></div></div>
-		<div id="modal-python" class="modal-overlay" onclick="closeModal(event)"><div class="modal-content"><span class="modal-close" onclick="forceClose('modal-python')">&times;</span><h2 class="modal-h2">Defect Detection</h2><p>Used Python, OpenCV, and PyTorch to detect steel defects with 98% accuracy on edge hardware.</p></div></div>
-		<div id="modal-cpp" class="modal-overlay" onclick="closeModal(event)"><div class="modal-content"><span class="modal-close" onclick="forceClose('modal-cpp')">&times;</span><h2 class="modal-h2">High-Speed Manipulator</h2><p>Implemented C++ Inverse Kinematics solvers to reduce control loop latency to under 1ms.</p></div></div>
-		<div id="modal-control" class="modal-overlay" onclick="closeModal(event)"><div class="modal-content"><span class="modal-close" onclick="forceClose('modal-control')">&times;</span><h2 class="modal-h2">Drone Stabilization</h2><p>Tuned cascade PID controllers and EKFs for stable quadcopter flight under load.</p></div></div>
-		<div id="modal-pm" class="modal-overlay" onclick="closeModal(event)"><div class="modal-content"><span class="modal-close" onclick="forceClose('modal-pm')">&times;</span><h2 class="modal-h2">Agile Deployment</h2><p>Led a team of 5 engineers using JIRA and Scrum to deliver a prototype 2 weeks ahead of schedule.</p></div></div>
-		<div id="modal-excel" class="modal-overlay" onclick="closeModal(event)"><div class="modal-content"><span class="modal-close" onclick="forceClose('modal-excel')">&times;</span><h2 class="modal-h2">Supply Chain Optimization</h2><p>Used <b>VLOOKUP, Pivot Tables, and PowerBI</b> to analyze vendor data, optimizing inventory costs by 15%.</p></div></div>
+		<div id="modal-ros" class="modal-overlay" onclick="closeModal(event)">
+			<div class="modal-content">
+				<span class="modal-close" onclick="forceClose('modal-ros')">&times;</span>
+				<h2 class="modal-h2">Holonomic Omnidirectional Robot</h2>
+				<h3 class="modal-h3">The Problem</h3>
+				<p class="modal-p">Standard differential drive robots lack the maneuverability required for complex mobile manipulation in constrained environments.</p>
+				<h3 class="modal-h3">The Methodology</h3>
+				<p class="modal-p">I conducted the "Kinematic and optimal design of a three-wheeled holonomic omnidirectional robot platform". This involved deriving kinematic equations for the 3-wheel configuration and implementing them in a ROS2 environment. I simulated the platform in Gazebo to validate the control algorithms before physical prototyping.</p>
+				<div class="modal-images">
+					<div class="modal-img-placeholder">Robot Design</div>
+					<div class="modal-img-placeholder">Kinematic Model</div>
+					<div class="modal-img-placeholder">Gazebo Sim</div>
+				</div>
+				<div class="modal-tech">Tech: ROS2, Gazebo, Kinematics</div>
+			</div>
+		</div>
+		
+		<div id="modal-python" class="modal-overlay" onclick="closeModal(event)">
+			<div class="modal-content">
+				<span class="modal-close" onclick="forceClose('modal-python')">&times;</span>
+				<h2 class="modal-h2">Automated Decision-Making AI</h2>
+				<h3 class="modal-h3">The Problem</h3>
+				<p class="modal-p">Legacy systems relied on manual data interpretation, which was slow and prone to errors.</p>
+				<h3 class="modal-h3">The Methodology</h3>
+				<p class="modal-p">As an AI Research Assistant at IBM Skills Build, I developed 4 distinct AI solutions using Python[cite: 24]. I executed data analysis on datasets to prepare and validate data, which improved model accuracy by 10%[cite: 25]. I also championed the adoption of 2 new ML techniques for project initiatives[cite: 26].</p>
+				<div class="modal-images">
+					<div class="modal-img-placeholder">Model Architecture</div>
+					<div class="modal-img-placeholder">Data Pipeline</div>
+				</div>
+				<div class="modal-tech">Tech: Python, Pandas, Scikit-Learn</div>
+			</div>
+		</div>
+		
+		<div id="modal-cpp" class="modal-overlay" onclick="closeModal(event)">
+			<div class="modal-content">
+				<span class="modal-close" onclick="forceClose('modal-cpp')">&times;</span>
+				<h2 class="modal-h2">SPM Control Optimization</h2>
+				<h3 class="modal-h3">The Problem</h3>
+				<p class="modal-p">Production cycle times for Special Purpose Machines (SPMs) needed reduction to meet high-speed automation targets.</p>
+				<h3 class="modal-h3">The Methodology</h3>
+				<p class="modal-p">At Wipro PARI, I applied core robotics and kinematic principles to develop SPM control logic using C++[cite: 19]. By optimizing the motion profiles and logic execution, I successfully reduced the production cycle time by 10% [cite: 19] and improved overall system efficiency by 15%[cite: 18].</p>
+				<div class="modal-images">
+					<div class="modal-img-placeholder">Control Logic</div>
+					<div class="modal-img-placeholder">Machine CAD</div>
+				</div>
+				<div class="modal-tech">Tech: C++, Industrial Automation, Motion Control</div>
+			</div>
+		</div>
+		
+		<div id="modal-control" class="modal-overlay" onclick="closeModal(event)">
+			<div class="modal-content">
+				<span class="modal-close" onclick="forceClose('modal-control')">&times;</span>
+				<h2 class="modal-h2">Vehicle Dynamics Optimization</h2>
+				<h3 class="modal-h3">The Problem</h3>
+				<p class="modal-p">Competitive racing vehicles required superior maneuverability and stability to succeed in ATVC competitions.</p>
+				<h3 class="modal-h3">The Methodology</h3>
+				<p class="modal-p">I led the Vehicle Dynamics Team, achieving top placements through suspension and braking system optimization[cite: 50]. I designed the vehicle's dynamic model using engineering principles to ensure stability [cite: 51] and selected actuators based on dynamic load calculations to maximize performance[cite: 52].</p>
+				<div class="modal-images">
+					<div class="modal-img-placeholder">Suspension Sim</div>
+					<div class="modal-img-placeholder">Dynamic Load Calc</div>
+				</div>
+				<div class="modal-tech">Tech: MATLAB/Simulink, ANSYS, Vehicle Dynamics</div>
+			</div>
+		</div>
+		
+		<div id="modal-pm" class="modal-overlay" onclick="closeModal(event)">
+			<div class="modal-content">
+				<span class="modal-close" onclick="forceClose('modal-pm')">&times;</span>
+				<h2 class="modal-h2">Robotics Team Leadership</h2>
+				<h3 class="modal-h3">The Problem</h3>
+				<p class="modal-p">Delivering complex robotics projects on strict deadlines while maintaining team productivity.</p>
+				<h3 class="modal-h3">The Methodology</h3>
+				<p class="modal-p">I led a 5-person team at Wipro PARI to deliver robotics projects. I implemented Agile-like tracking and focused on KPI ownership (Cost, Quality, Safety)[cite: 71]. This leadership resulted in a 95% on-time deployment rate and maximized team productivity.</p>
+				<div class="modal-images">
+					<div class="modal-img-placeholder">Gantt Chart</div>
+					<div class="modal-img-placeholder">Team Kiosks</div>
+				</div>
+				<div class="modal-tech">Tech: Agile, Stakeholder Management, KPI Tracking</div>
+			</div>
+		</div>
+		
+		<div id="modal-excel" class="modal-overlay" onclick="closeModal(event)">
+			<div class="modal-content">
+				<span class="modal-close" onclick="forceClose('modal-excel')">&times;</span>
+				<h2 class="modal-h2">BOM Inventory Analytics</h2>
+				<h3 class="modal-h3">The Problem</h3>
+				<p class="modal-p">Tracking the Bill of Materials (BOM) for large-scale engineering projects at Wipro PARI was complex and prone to inventory mismatches.</p>
+				<h3 class="modal-h3">The Methodology</h3>
+				<p class="modal-p">I developed a comprehensive Inventory Management system using MS Excel and PowerBI. This system tracked component usage against the BOM, visualized stock levels, and forecasted shortages. This analytics tool streamlined the procurement process and reduced project delays due to part unavailability.</p>
+				<div class="modal-images">
+					<div class="modal-img-placeholder">Excel Dashboard</div>
+					<div class="modal-img-placeholder">PowerBI Report</div>
+				</div>
+				<div class="modal-tech">Tech: Excel (VLOOKUP, Solver), PowerBI, Data Analytics</div>
+			</div>
+		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.poptrox.min.js"></script>
