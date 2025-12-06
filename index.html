@@ -72,6 +72,7 @@
 			.card-cad    { border-left-color: #d4a017; }
 			.card-control{ border-left-color: #0ff; }
 			.card-pm     { border-left-color: #0052cc; }
+			.card-excel  { border-left-color: #217346; } /* Excel Green */
 
 			/* --- 5. SYNTAX HIGHLIGHTING --- */
 			.kw { color: #569cd6; font-weight: bold; } 
@@ -155,13 +156,51 @@
 				padding: 2px 8px; border-radius: 3px;
 				font-size: 0.7em; float: right;
 			}
+
+			/* --- 10. EXCEL CARD --- */
+			.card-excel {
+				background: #fff;
+				color: #333;
+				font-family: sans-serif;
+				border: 1px solid #ccc;
+			}
+			.excel-header {
+				background: #217346;
+				color: white;
+				padding: 5px;
+				font-weight: bold;
+				margin: -20px -20px 10px -20px;
+				font-size: 0.9em;
+			}
+			.excel-sheet {
+				display: grid;
+				grid-template-columns: 30px 1fr 1fr;
+				border: 1px solid #e0e0e0;
+				font-size: 0.85em;
+			}
+			.excel-cell {
+				padding: 4px;
+				border-right: 1px solid #e0e0e0;
+				border-bottom: 1px solid #e0e0e0;
+			}
+			.excel-row-head { background: #f0f0f0; text-align: center; font-weight: bold;}
+			.excel-col-head { background: #f0f0f0; font-weight: bold; }
+			.excel-data { background: #fff; }
+			.excel-formula { 
+				background: #f0f0f0; 
+				padding: 4px; 
+				border: 1px solid #e0e0e0; 
+				margin-top: 10px;
+				font-family: monospace;
+				font-size: 0.8em;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
 
 		<header id="header">
 				<div class="inner">
-					<a href="#" class="image avatar"><img src="https://via.placeholder.com/150" alt="Anukool Shidhore" /></a>
+					<a href="#" class="image avatar"><img src="images/Linkedin_Profile_2.png" alt="Anukool Shidhore" /></a>
 					<h1>
 						<strong>I am Anukool Shidhore</strong>,<br />
 						a Robotics Engineer &<br />
@@ -318,6 +357,35 @@
 								<div style="margin-top: 10px; font-size: 0.75em; border-top: 1px solid #eee; padding-top: 5px;">
 									<b>Assignee:</b> Anukool S. <br>
 									<b>Methodology:</b> Scrum / Agile
+								</div>
+							</div>
+
+							<div class="code-card card-excel">
+								<div class="excel-header">
+									<span>Data Analysis.xlsx</span>
+								</div>
+								<div class="excel-sheet">
+									<div class="excel-cell excel-row-head"></div>
+									<div class="excel-cell excel-col-head">A</div>
+									<div class="excel-cell excel-col-head">B</div>
+									
+									<div class="excel-cell excel-row-head">1</div>
+									<div class="excel-cell excel-data">Metric</div>
+									<div class="excel-cell excel-data">Value</div>
+									
+									<div class="excel-cell excel-row-head">2</div>
+									<div class="excel-cell excel-data">Optimization</div>
+									<div class="excel-cell excel-data" style="color:green;">+15%</div>
+									
+									<div class="excel-cell excel-row-head">3</div>
+									<div class="excel-cell excel-data">Cost Reduction</div>
+									<div class="excel-cell excel-data" style="color:green;">$12k</div>
+								</div>
+								<div class="excel-formula">
+									=SUM(B2:B3) & " Solver Add-in"
+								</div>
+								<div style="margin-top: 5px; font-size: 0.8em; color: #666;">
+									<b>Skills:</b> Pivot Tables, VLOOKUP, Data Visualization
 								</div>
 							</div>
 
