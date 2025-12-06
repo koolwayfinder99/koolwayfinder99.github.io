@@ -1,153 +1,365 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Anukool Shidhore | Robotics & PM Portfolio</title>
+		<title>Anukool Shidhore | Robotics Engineer</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+		<style>
+			/* --- 1. GREETING ANIMATION --- */
+			.greeting-container {
+				display: inline-block;
+				overflow: hidden;
+				vertical-align: bottom;
+				height: 1.2em;
+				margin-right: 0.2em;
+			}
+			.greeting-wrapper {
+				display: block;
+				animation: slide-up 6s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+			}
+			.greeting-word {
+				display: block;
+				height: 1.2em;
+				line-height: 1.2em;
+				font-weight: 700;
+				color: #49bf9d; /* Strata Green Accent */
+			}
+			@keyframes slide-up {
+				0%, 25% { transform: translateY(0); }
+				33%, 58% { transform: translateY(-1.2em); }
+				66%, 91% { transform: translateY(-2.4em); }
+				100% { transform: translateY(0); }
+			}
+
+			/* --- 2. SKILL CARDS CONTAINER --- */
+			.tech-stack-container {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
+				justify-content: center;
+				margin-top: 2em;
+			}
+
+			/* --- 3. BASE CARD STYLES --- */
+			.code-card {
+				background: #1e1e1e; /* Dark Code BG */
+				border-radius: 8px;
+				padding: 20px;
+				font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+				font-size: 0.8em; /* Slightly smaller for density */
+				color: #d4d4d4;
+				width: 100%;
+				max-width: 45%; /* Fits 2 per row */
+				box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+				border-left: 5px solid #555;
+				transition: transform 0.2s;
+				text-align: left;
+				margin-bottom: 0; /* Override template defaults */
+			}
+			.code-card:hover { transform: translateY(-5px); }
+			
+			/* Mobile adjustment */
+			@media screen and (max-width: 736px) {
+				.code-card { max-width: 100%; }
+			}
+
+			/* --- 4. LANGUAGE ACCENTS --- */
+			.card-python { border-left-color: #3572A5; }
+			.card-cpp    { border-left-color: #f34b7d; }
+			.card-ros    { border-left-color: #22b455; }
+			.card-cad    { border-left-color: #d4a017; }
+			.card-control{ border-left-color: #0ff; }
+			.card-pm     { border-left-color: #0052cc; }
+
+			/* --- 5. SYNTAX HIGHLIGHTING --- */
+			.kw { color: #569cd6; font-weight: bold; } 
+			.str { color: #ce9178; } 
+			.func { color: #dcdcaa; } 
+			.comment { color: #6a9955; font-style: italic; } 
+			.num { color: #b5cea8; } 
+			.type { color: #4ec9b0; } 
+
+			/* --- 6. ROS TERMINAL --- */
+			.ros-terminal {
+				background: #000;
+				border: 1px solid #333;
+				color: #0f0;
+			}
+			.ros-log { animation: blink 2s infinite; }
+			@keyframes blink { 50% { opacity: 0; } }
+
+			/* --- 7. MECHANICAL CARD --- */
+			.card-cad {
+				background: #e6e6e6; 
+				color: #333;
+				border: 1px solid #999;
+				font-family: 'Segoe UI', Tahoma, sans-serif;
+			}
+			.cad-header {
+				background: #d9d9d9;
+				padding: 5px 10px;
+				font-weight: bold;
+				border-bottom: 1px solid #aaa;
+				display: flex;
+				justify-content: space-between;
+				margin: -20px -20px 10px -20px;
+			}
+			.cad-tree div { margin-bottom: 4px; }
+			.cad-icon { color: #d4a017; margin-right: 5px; }
+
+			/* --- 8. CONTROLS CARD --- */
+			.card-control {
+				background: #000;
+				border: 1px solid #444;
+				color: #0ff;
+			}
+			.scope-grid {
+				background-image: linear-gradient(#333 1px, transparent 1px),
+				linear-gradient(90deg, #333 1px, transparent 1px);
+				background-size: 20px 20px;
+				height: 60px;
+				width: 100%;
+				position: relative;
+				margin: 10px 0;
+			}
+			.scope-line {
+				position: absolute;
+				top: 50%; left: 0; width: 100%; height: 2px;
+				background: #0ff;
+				box-shadow: 0 0 5px #0ff;
+				animation: stabilize 3s infinite ease-out;
+				transform-origin: left;
+			}
+			@keyframes stabilize {
+				0% { transform: scaleY(10) translateY(10px); }
+				20% { transform: scaleY(5) translateY(-10px); }
+				50% { transform: scaleY(2) translateY(5px); }
+				100% { transform: scaleY(1) translateY(0); }
+			}
+
+			/* --- 9. PM CARD --- */
+			.card-pm {
+				background: #fff;
+				color: #172b4d;
+				font-family: sans-serif;
+			}
+			.pm-tag {
+				background: #dfe1e6; color: #42526e;
+				padding: 2px 6px; border-radius: 3px;
+				font-size: 0.7em; font-weight: bold;
+			}
+			.pm-status {
+				background: #00875a; color: white;
+				padding: 2px 8px; border-radius: 3px;
+				font-size: 0.7em; float: right;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
-		<div id="page-wrapper">
-
-				<div id="wrapper">
-
-						<section class="panel banner right">
-								<div class="content color0 span-3-75">
-									<h1 class="major">Hello, my name<br />
-									is Anukool Shidhore</h1>
-									<p><strong>Robotics Engineer | Project Manager</strong><br />
-									Bridging the gap between <i>Steel</i> (Mechanical) & <i>Silicon</i> (Intelligence).</p>
-									<ul class="actions">
-										<li><a href="#journey" class="button primary color1 circle icon solid fa-angle-right">Next</a></li>
-									</ul>
-								</div>
-								<div class="image filtered span-1-75" data-position="25% 25%">
-									<img src="images/pic01.jpg" alt="Anukool Shidhore" />
-								</div>
-							</section>
-
-						<section class="panel spotlight medium right" id="journey">
-								<div class="content span-7">
-									<h2 class="major">From Steel to Silicon</h2>
-									<p>My journey began in <b>Mechanical Engineering</b> ("Steel"), understanding the physical world of dynamics, materials, and manufacturing. However, I realized the future wasn't just in building the body, but in designing the brain.</p>
-									<p>I transitioned into <b>Robotics & AI</b> ("Silicon"), mastering ROS, Python, and Control Systems. Today, I combine these worlds, using my Project Management skills to lead complex developments where hardware meets software.</p>
-								</div>
-								<div class="image filtered tinted" data-position="top left">
-									<img src="images/pic02.jpg" alt="Robotics Development" />
-								</div>
-							</section>
-
-						<section class="panel spotlight large left" id="project1">
-								<div class="content span-5">
-									<h2 class="major">Project 1: Autonomous Mobile Robot</h2>
-									<p><b>The Challenge:</b> To create a navigation stack capable of dynamic obstacle avoidance in unstructured environments.</p>
-									<p><b>The Solution:</b> Developed a custom ROS2 navigation node using SLAM and LiDAR integration. Optimized path planning algorithms (A*) to reduce latency by 30%.</p>
-									<ul class="actions">
-										<li><a href="https://github.com/koolwayfinder99" target="_blank" class="button primary color2">View Github</a></li>
-									</ul>
-								</div>
-								<div class="image filtered tinted" data-position="top right">
-									<img src="images/pic03.jpg" alt="Autonomous Robot Project" />
-								</div>
-							</section>
-
-						<section class="panel color1" id="other-projects">
-								<div class="intro joined">
-									<h2 class="major">Selected Works</h2>
-									<p>A deeper dive into my technical achievements in automation and software architecture.</p>
-								</div>
-								<div class="inner columns divided">
-									
-									<div class="span-3-25">
-										<h3 class="major">Project 2: Industrial Manipulator</h3>
-										<p><strong>Tech Stack:</strong> C++, MoveIt, Gazebo</p>
-										<p>Designed the kinematics for a 6-DOF robotic arm used in pick-and-place operations. Implemented inverse kinematics solvers to improve precision by 15% and managed the full simulation lifecycle before physical deployment.</p>
-										<ul class="actions">
-											<li><a href="#" class="button small">See Case Study</a></li>
-										</ul>
-									</div>
-
-									<div class="span-3-25">
-										<h3 class="major">Project 3: Computer Vision QC</h3>
-										<p><strong>Tech Stack:</strong> Python, OpenCV, TensorFlow</p>
-										<p>Built an automated quality control system using computer vision. Trained a CNN model to detect surface defects on steel components with 98% accuracy.</p>
-										<ul class="actions">
-											<li><a href="https://github.com/koolwayfinder99" class="button small">See Code</a></li>
-										</ul>
-									</div>
-								</div>
-							</section>
-
-						<section class="panel color2-alt" id="skills">
-								<div class="intro color2">
-									<h2 class="major">The Toolbox</h2>
-									<p>My technical proficiency and management methodologies.</p>
-								</div>
-								<div class="inner columns aligned">
-									<div class="span-3">
-										<h3 class="major">Hard Skills</h3>
-										<ul class="alt">
-											<li><b>Robotics:</b> ROS/ROS2, Gazebo, MoveIt, SLAM.</li>
-											<li><b>Programming:</b> Python, C++, MATLAB.</li>
-											<li><b>Engineering:</b> CAD (SolidWorks), FEA, Mechatronics.</li>
-											<li><b>AI/ML:</b> OpenCV, TensorFlow, Sensor Fusion.</li>
-										</ul>
-									</div>
-									<div class="span-3">
-										<h3 class="major">Management & Soft Skills</h3>
-										<ul class="alt">
-											<li><b>Methodologies:</b> Agile, Scrum, Waterfall.</li>
-											<li><b>Tools:</b> JIRA, Confluence, Gantt Charts.</li>
-											<li><b>Leadership:</b> Cross-functional team leadership.</li>
-											<li><b>Strategy:</b> Product Lifecycle Management (PLM).</li>
-										</ul>
-									</div>
-								</div>
-							</section>
-
-                        <section class="panel spotlight large left" id="mission">
-                                <div class="content span-5">
-                                    <h2 class="major">The Mission: Delivering Success</h2>
-                                    <p><b>My goal is simple: To help companies transition from Prototype to Production.</b></p>
-                                    <p>Building a robot is hard; building a scalable robotic business is harder. I exist to bridge the "Valley of Death" in hardware development. </p>
-                                    <p>Whether optimizing mechanical reliability (Steel) or refining the autonomy stack (Silicon), I focus on creating systems that are <b>scalable, maintainable, and market-ready</b>.</p>
-                                </div>
-                                <div class="image filtered tinted" data-position="top right">
-                                    <img src="images/pic04.jpg" alt="Engineering Success" />
-                                </div>
-                            </section>
-
-						<section class="panel color4-alt" id="contact">
-								<div class="intro color4">
-									<h2 class="major">Get in Touch</h2>
-									<p>Ready to bring value to your engineering team. Connect with me directly below.</p>
-								</div>
-								<div class="inner">
-									<ul class="contact-icons color1">
-										<li class="icon brands fa-linkedin">
-											<a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank">linkedin.com/in/anukool-shidhore</a>
-										</li>
-										<li class="icon brands fa-github">
-											<a href="https://github.com/koolwayfinder99" target="_blank">github.com/koolwayfinder99</a>
-										</li>
-										<li class="icon solid fa-envelope">
-											<a href="mailto:email@example.com">email@example.com</a>
-										</li>
-									</ul>
-								</div>
-							</section>
-
-						<div class="copyright">&copy; Anukool Shidhore. Design: <a href="https://html5up.net">HTML5 UP</a>.</div>
-
+		<header id="header">
+				<div class="inner">
+					<a href="#" class="image avatar"><img src="https://via.placeholder.com/150" alt="Anukool Shidhore" /></a>
+					<h1>
+						<strong>I am Anukool Shidhore</strong>,<br />
+						a Robotics Engineer &<br />
+						Project Manager<br />
+					</h1>
+					<br />
+					<h5 style="color: rgba(255, 255, 255, 0.5);">
+						Bridging <span style="color: #fff;">Steel</span> (Mech) <br />
+						and <span style="color: #fff;">Silicon</span> (AI)
+					</h5>
+				</div>
+				<footer id="footer">
+					<div class="inner">
+						<ul class="icons">
+							<li><a href="https://github.com/koolwayfinder99" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="mailto:anukoolshidhore09@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Anukool Shidhore</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
 					</div>
+				</footer>
+			</header>
+
+		<div id="main">
+
+				<section id="one">
+						<header class="major">
+							<h2>
+								<span class="greeting-container">
+									<span class="greeting-wrapper">
+										<span class="greeting-word">Hi,</span>
+										<span class="greeting-word">Hallo,</span>
+										<span class="greeting-word">Hola,</span>
+									</span>
+								</span>
+								Engineered from Steel to Silicon
+							</h2>
+						</header>
+						<p>My journey began in <b>Mechanical Engineering</b> ("Steel"), understanding the physical world of dynamics, materials, and manufacturing. However, I realized the future wasn't just in building the body, but in designing the brain.</p>
+						<p>I transitioned into <b>Robotics & AI</b> ("Silicon"), mastering <b>ROS2, C++, and Control Systems</b>. Today, I combine these worlds, using my <b>Project Management</b> skills to lead complex developments where hardware meets software.</p>
+						<ul class="actions">
+							<li><a href="#two" class="button">See Projects</a></li>
+							<li><a href="#skills-visualized" class="button">See Skills</a></li>
+						</ul>
+					</section>
+
+				<section id="two">
+						<h2>Selected Works</h2>
+						<div class="row">
+							
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="#" class="image fit thumb"><img src="https://via.placeholder.com/600x400/111/fff?text=AMR+Project" alt="" /></a>
+								<h3>Autonomous Mobile Robot (AMR)</h3>
+								<p><b>ROS2 & SLAM:</b> Developed a custom navigation stack for unstructured environments. Optimized A* path planning to reduce latency by 30%.</p>
+							</article>
+							
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="#" class="image fit thumb"><img src="https://via.placeholder.com/600x400/222/fff?text=Robotic+Arm" alt="" /></a>
+								<h3>6-DOF Manipulator</h3>
+								<p><b>C++ & Kinematics:</b> Designed kinematics and IK solvers for a robotic arm, improving pick-and-place precision by 15% in Gazebo simulation.</p>
+							</article>
+
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="#" class="image fit thumb"><img src="https://via.placeholder.com/600x400/333/fff?text=Computer+Vision" alt="" /></a>
+								<h3>Vision QC System</h3>
+								<p><b>Python & OpenCV:</b> Automated quality control using CNNs to detect surface defects on steel components with 98% accuracy.</p>
+							</article>
+
+						</div>
+						<ul class="actions">
+							<li><a href="https://github.com/koolwayfinder99" class="button">View Full Portfolio on Github</a></li>
+						</ul>
+					</section>
+
+				<section id="skills-visualized">
+						<h2>The Code Behind the Engineer</h2>
+						<p>I don't just use tools; I speak their language. From low-level hardware control to high-level project management, here is my toolkit visualized.</p>
+
+						<div class="tech-stack-container">
+
+							<div class="code-card card-ros ros-terminal">
+								<div class="comment"># ROS2: System Architecture</div>
+								<span class="kw">user@bot:~$</span> ros2 launch nav_stack start.py<br><br>
+								[<span class="type">INFO</span>] [lidar_node]: <span class="str">Active (20Hz)</span><br>
+								[<span class="type">INFO</span>] [slam_toolbox]: Map update received<br>
+								[<span class="type">INFO</span>] [planner]: <span class="str">Path found. Executing...</span><br>
+								<span class="ros-log">_</span>
+							</div>
+
+							<div class="code-card card-python">
+								<div class="comment"># Python: AI & Automation</div>
+								<span class="kw">class</span> <span class="type">Engineer</span>:<br>
+								&nbsp;&nbsp;<span class="kw">def</span> <span class="func">__init__</span>(self):<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;self.stack = [<span class="str">"TensorFlow"</span>, <span class="str">"OpenCV"</span>]<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;self.efficiency = <span class="str">"High"</span><br>
+								<br>
+								&nbsp;&nbsp;<span class="kw">def</span> <span class="func">deploy</span>(self):<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"Production Ready"</span>
+							</div>
+
+							<div class="code-card card-cpp">
+								<div class="comment">// C++: Real-time Control</div>
+								<span class="kw">struct</span> <span class="type">RoboticArm</span> {<br>
+								&nbsp;&nbsp;<span class="kw">int</span> dof = <span class="num">6</span>;<br>
+								&nbsp;&nbsp;<span class="kw">double</span>* precision_ptr;<br>
+								};<br>
+								<br>
+								<span class="kw">void</span> <span class="func">optimize_ik</span>() {<br>
+								&nbsp;&nbsp;latency -= <span class="num">30</span>; <span class="comment">// ms</span><br>
+								}
+							</div>
+
+							<div class="code-card card-cad">
+								<div class="cad-header">
+									<span>Mass Properties</span>
+									<span>X</span>
+								</div>
+								<div class="cad-tree">
+									<div><i class="fas fa-cube cad-icon"></i> <b>Material:</b> AISI 304 Steel</div>
+									<div><i class="fas fa-balance-scale cad-icon"></i> <b>Mass:</b> 12.50 kg</div>
+									<div><i class="fas fa-wrench cad-icon"></i> <b>DFM Check:</b> <span style="color:green">PASS</span></div>
+									<hr style="margin: 5px 0; border-color: #ccc;">
+									<div style="font-size:0.8em; color:#666;">Linked to: Manipulator Project</div>
+								</div>
+							</div>
+
+							<div class="code-card card-control">
+								<div class="comment"># PID Tuning: Stability</div>
+								<div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+									<span>Kp: 1.2</span> <span>Ki: 0.05</span>
+								</div>
+								<div class="scope-grid">
+									<div class="scope-line"></div>
+								</div>
+								<div style="margin-top:10px; font-size: 0.8em;">
+									Status: <span style="color:#0f0">CONVERGED</span>
+								</div>
+							</div>
+
+							<div class="code-card card-pm">
+								<div style="margin-bottom: 10px;">
+									<span class="pm-tag">KANBAN-101</span>
+									<span class="pm-status">DONE</span>
+								</div>
+								<h4 style="margin: 0 0 10px 0; color:#172b4d;">Launch MVP to Production</h4>
+								<div style="font-size: 0.85em; color: #5e6c84;">
+									<ul style="list-style: none; padding: 0;">
+										<li>✅ Sprint Planning</li>
+										<li>✅ Budget: Under 15% Cap</li>
+									</ul>
+								</div>
+								<div style="margin-top: 10px; font-size: 0.75em; border-top: 1px solid #eee; padding-top: 5px;">
+									<b>Assignee:</b> Anukool S. <br>
+									<b>Methodology:</b> Scrum / Agile
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+				<section id="three">
+						<h2>The Mission: Delivering Success</h2>
+						<p><b>My goal is simple: To help companies transition from Prototype to Production.</b></p>
+						<p>Building a robot is hard; building a scalable robotic business is harder. I exist to bridge the "Valley of Death" in hardware development. Whether optimizing mechanical reliability or refining the autonomy stack, I focus on creating systems that are scalable, maintainable, and market-ready.</p>
+					</section>
+
+				<section id="four">
+						<h2>Get In Touch</h2>
+						<p>I am ready to bring value to your engineering team. Connect with me directly:</p>
+						<div class="row">
+							<div class="col-8 col-12-small">
+								<ul class="feature-icons">
+									<li class="icon solid fa-envelope">
+										<a href="mailto:anukoolshidhore09@gmail.com">anukoolshidhore09@gmail.com</a>
+									</li>
+									<li class="icon solid fa-envelope">
+										<a href="mailto:bestpersontohire2026@outlook.com">bestpersontohire2026@outlook.com</a>
+									</li>
+									<li class="icon brands fa-linkedin">
+										<a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank">linkedin.com/in/anukool-shidhore</a>
+									</li>
+									<li class="icon brands fa-github">
+										<a href="https://github.com/koolwayfinder99" target="_blank">github.com/koolwayfinder99</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
 
 			</div>
 
 		<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
 	</body>
