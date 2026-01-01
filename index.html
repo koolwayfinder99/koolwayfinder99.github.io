@@ -30,15 +30,41 @@
 			.button.primary { background-color: #00acc1; color: #ffffff !important; border-color: #00acc1; }
 			.button.primary:hover { background-color: #00838f; }
 
-			/* --- 4. ANIMATED SALUTATION --- */
-			.greeting-container { display: block; font-size: 0.8em; color: #00acc1; font-weight: 600; margin-bottom: 0.2em; text-transform: uppercase; letter-spacing: 2px; }
-			.greeting-wrapper { display: inline-block; overflow: hidden; vertical-align: bottom; height: 1.2em; }
-			.greeting-word { display: block; height: 1.2em; animation: slide-up 6s cubic-bezier(0.23, 1, 0.32, 1) infinite; color: #00acc1; }
+			/* --- 4. INFINITE SCROLL ANIMATION --- */
+			.greeting-container {
+				display: block;
+				font-size: 0.8em;
+				color: #00acc1;
+				font-weight: 600;
+				margin-bottom: 0.2em;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				height: 1.2em;
+				line-height: 1.2em;
+				overflow: hidden;
+			}
+
+			.greeting-wrapper {
+				display: block;
+				/* 12s duration for 6 items (5 words + 1 duplicate) */
+				animation: slide-up 12s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+				will-change: transform;
+			}
+
+			.greeting-word {
+				display: block;
+				height: 1.2em;
+				line-height: 1.2em;
+				color: #00acc1;
+			}
+
 			@keyframes slide-up {
-				0%, 25% { transform: translateY(0); }
-				33%, 58% { transform: translateY(-1.2em); }
-				66%, 91% { transform: translateY(-2.4em); }
-				100% { transform: translateY(0); }
+				0%, 12%      { transform: translateY(0); }         /* 1. Hello */
+				16.6%, 28.6% { transform: translateY(-1.2em); }    /* 2. Hallo */
+				33.3%, 45.3% { transform: translateY(-2.4em); }    /* 3. Hola */
+				50%, 62%     { transform: translateY(-3.6em); }    /* 4. Ciao */
+				66.6%, 78.6% { transform: translateY(-4.8em); }    /* 5. Namaste */
+				83.3%, 100%  { transform: translateY(-6.0em); }    /* 6. Hello (Duplicate) */
 			}
 
 			/* --- 5. COMPACT SKILL CARDS --- */
@@ -76,10 +102,10 @@
 			/* --- 6. MODALS --- */
 			.modal-overlay {
 				position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-				background: rgba(255, 255, 255, 0.98); /* White overlay */
+				background: rgba(255, 255, 255, 0.98);
 				display: none; justify-content: center; align-items: center; z-index: 10000;
 				backdrop-filter: blur(5px);
-				overflow-y: auto; /* Allow scrolling if modal is tall */
+				overflow-y: auto; 
 			}
 			.modal-content {
 				background: #ffffff; border: 1px solid #00acc1; padding: 40px;
@@ -94,16 +120,6 @@
 			.modal-p { font-size: 1em; line-height: 1.6; color: #666; margin-bottom: 10px; }
 			.modal-tech { background: rgba(0, 172, 193, 0.1); color: #00838f; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-top: 15px; font-family: monospace; font-size: 0.9em; font-weight: bold; }
 			
-			/* Modal Images Section */
-			.modal-images {
-				display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; padding-bottom: 10px;
-			}
-			.modal-img-placeholder {
-				width: 150px; height: 100px; background: #eee; border-radius: 5px; flex-shrink: 0;
-				display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8em;
-				border: 1px dashed #ccc;
-			}
-
 			@media screen and (max-width: 736px) {
 				.skill-wrapper { width: 100%; max-width: 100%; }
 				#main { margin-left: 0; max-width: 100%; }
@@ -131,7 +147,7 @@
 						<ul class="icons">
 							<li><a href="https://github.com/koolwayfinder99" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
 							<li><a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="mailto:anukoolshidhore09@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="mailto:anukools09@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 						<ul class="copyright">
 							<li>&copy; Anukool Shidhore</li>
@@ -148,9 +164,11 @@
 								<div class="greeting-container">
 									<span class="greeting-wrapper">
 										<span class="greeting-word">Hello,</span>
-										<span class="greeting-word">Welcome,</span>
+										<span class="greeting-word">Hallo,</span>
 										<span class="greeting-word">Hola,</span>
-									</span>
+										<span class="greeting-word">Ciao,</span>
+										<span class="greeting-word">Namaste,</span>
+										<span class="greeting-word">Hello,</span> </span>
 								</div>
 								Engineered from Steel to Silicon
 							</h2>
@@ -167,19 +185,34 @@
 						<h2>Selected Projects</h2>
 						<div class="row">
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="https://via.placeholder.com/600x400/eee/555?text=Omnidirectional+Robot" alt="" /></a>
+								<a href="#" class="image fit thumb"><img src="images/proj-omni.jpg" alt="Omnidirectional Robot" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Omnidirectional+Robot'"/></a>
 								<h3>Holonomic Omnidirectional Robot</h3>
 								<p><b>ROS2 & Kinematics:</b> Designed optimal kinematic models for mobile manipulation tasks.</p>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="https://via.placeholder.com/600x400/eee/555?text=SPM+Automation" alt="" /></a>
+								<a href="#" class="image fit thumb"><img src="images/proj-arm.jpg" alt="SPM Automation" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=SPM+Automation'"/></a>
 								<h3>SPM Automation Logic</h3>
 								<p><b>C++ & Controls:</b> Engineered control logic for Special Purpose Machines, reducing cycle time by 10%.</p>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="https://via.placeholder.com/600x400/eee/555?text=AI+Decision+Models" alt="" /></a>
+								<a href="#" class="image fit thumb"><img src="images/proj-vision.jpg" alt="AI Decision Models" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=AI+Decision+Models'"/></a>
 								<h3>AI Decision Models</h3>
 								<p><b>Python & ML:</b> Developed automated decision-making algorithms improving accuracy by 10%.</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="#" class="image fit thumb"><img src="images/proj-amr.jpg" alt="Autonomous Mobile Robot" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Autonomous+Mobile+Robot'"/></a>
+								<h3>Autonomous Mobile Robot</h3>
+								<p><b>ROS2 & SLAM:</b> Custom navigation stack for unstructured environments. Reduced latency by 30%.</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="#" class="image fit thumb"><img src="images/proj-drone.jpg" alt="Drone Stabilization" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Drone+Stabilization'"/></a>
+								<h3>Drone Stabilization</h3>
+								<p><b>Controls & PID:</b> Tuned cascade PID controllers for stable quadcopter flight under load.</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="#" class="image fit thumb"><img src="images/proj-excel.jpg" alt="Excel Analytics" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Inventory+Analytics'"/></a>
+								<h3>Inventory Analytics</h3>
+								<p><b>Excel & PowerBI:</b> Streamlined procurement with automated BOM tracking dashboards.</p>
 							</article>
 						</div>
 						<ul class="actions">
@@ -277,7 +310,7 @@
 						<div class="row">
 							<div class="col-8 col-12-small">
 								<ul class="feature-icons">
-									<li class="icon solid fa-envelope"><a href="mailto:anukoolshidhore09@gmail.com">anukoolshidhore09@gmail.com</a></li>
+									<li class="icon solid fa-envelope"><a href="mailto:anukools09@gmail.com">anukools09@gmail.com</a></li>
 									<li class="icon solid fa-envelope"><a href="mailto:bestpersontohire2026@outlook.com">bestpersontohire2026@outlook.com</a></li>
 									<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank">linkedin.com/in/anukool-shidhore</a></li>
 									<li class="icon brands fa-github"><a href="https://github.com/koolwayfinder99" target="_blank">github.com/koolwayfinder99</a></li>
@@ -294,12 +327,7 @@
 				<h3 class="modal-h3">The Problem</h3>
 				<p class="modal-p">Standard differential drive robots lack the maneuverability required for complex mobile manipulation in constrained environments.</p>
 				<h3 class="modal-h3">The Methodology</h3>
-				<p class="modal-p">I conducted the "Kinematic and optimal design of a three-wheeled holonomic omnidirectional robot platform". This involved deriving kinematic equations for the 3-wheel configuration and implementing them in a ROS2 environment. I simulated the platform in Gazebo to validate the control algorithms before physical prototyping.</p>
-				<div class="modal-images">
-					<div class="modal-img-placeholder">Robot Design</div>
-					<div class="modal-img-placeholder">Kinematic Model</div>
-					<div class="modal-img-placeholder">Gazebo Sim</div>
-				</div>
+				<p class="modal-p">I conducted the "Kinematic and optimal design of a three-wheeled holonomic omnidirectional robot platform". This involved deriving kinematic equations for the 3-wheel configuration and implementing them in a ROS2 environment.</p>
 				<div class="modal-tech">Tech: ROS2, Gazebo, Kinematics</div>
 			</div>
 		</div>
@@ -311,11 +339,7 @@
 				<h3 class="modal-h3">The Problem</h3>
 				<p class="modal-p">Legacy systems relied on manual data interpretation, which was slow and prone to errors.</p>
 				<h3 class="modal-h3">The Methodology</h3>
-				<p class="modal-p">As an AI Research Assistant at IBM Skills Build, I developed 4 distinct AI solutions using Python[cite: 24]. I executed data analysis on datasets to prepare and validate data, which improved model accuracy by 10%[cite: 25]. I also championed the adoption of 2 new ML techniques for project initiatives[cite: 26].</p>
-				<div class="modal-images">
-					<div class="modal-img-placeholder">Model Architecture</div>
-					<div class="modal-img-placeholder">Data Pipeline</div>
-				</div>
+				<p class="modal-p">As an AI Research Assistant at IBM Skills Build, I developed 4 distinct AI solutions using Python. I executed data analysis on datasets to prepare and validate data, which improved model accuracy by 10%.</p>
 				<div class="modal-tech">Tech: Python, Pandas, Scikit-Learn</div>
 			</div>
 		</div>
@@ -327,11 +351,7 @@
 				<h3 class="modal-h3">The Problem</h3>
 				<p class="modal-p">Production cycle times for Special Purpose Machines (SPMs) needed reduction to meet high-speed automation targets.</p>
 				<h3 class="modal-h3">The Methodology</h3>
-				<p class="modal-p">At Wipro PARI, I applied core robotics and kinematic principles to develop SPM control logic using C++[cite: 19]. By optimizing the motion profiles and logic execution, I successfully reduced the production cycle time by 10% [cite: 19] and improved overall system efficiency by 15%[cite: 18].</p>
-				<div class="modal-images">
-					<div class="modal-img-placeholder">Control Logic</div>
-					<div class="modal-img-placeholder">Machine CAD</div>
-				</div>
+				<p class="modal-p">At Wipro PARI, I applied core robotics and kinematic principles to develop SPM control logic using C++. By optimizing the motion profiles and logic execution, I successfully reduced the production cycle time by 10%.</p>
 				<div class="modal-tech">Tech: C++, Industrial Automation, Motion Control</div>
 			</div>
 		</div>
@@ -343,11 +363,7 @@
 				<h3 class="modal-h3">The Problem</h3>
 				<p class="modal-p">Competitive racing vehicles required superior maneuverability and stability to succeed in ATVC competitions.</p>
 				<h3 class="modal-h3">The Methodology</h3>
-				<p class="modal-p">I led the Vehicle Dynamics Team, achieving top placements through suspension and braking system optimization[cite: 50]. I designed the vehicle's dynamic model using engineering principles to ensure stability [cite: 51] and selected actuators based on dynamic load calculations to maximize performance[cite: 52].</p>
-				<div class="modal-images">
-					<div class="modal-img-placeholder">Suspension Sim</div>
-					<div class="modal-img-placeholder">Dynamic Load Calc</div>
-				</div>
+				<p class="modal-p">I led the Vehicle Dynamics Team, achieving top placements through suspension and braking system optimization. I designed the vehicle's dynamic model using engineering principles to ensure stability.</p>
 				<div class="modal-tech">Tech: MATLAB/Simulink, ANSYS, Vehicle Dynamics</div>
 			</div>
 		</div>
@@ -359,11 +375,7 @@
 				<h3 class="modal-h3">The Problem</h3>
 				<p class="modal-p">Delivering complex robotics projects on strict deadlines while maintaining team productivity.</p>
 				<h3 class="modal-h3">The Methodology</h3>
-				<p class="modal-p">I led a 5-person team at Wipro PARI to deliver robotics projects. I implemented Agile-like tracking and focused on KPI ownership (Cost, Quality, Safety)[cite: 71]. This leadership resulted in a 95% on-time deployment rate and maximized team productivity.</p>
-				<div class="modal-images">
-					<div class="modal-img-placeholder">Gantt Chart</div>
-					<div class="modal-img-placeholder">Team Kiosks</div>
-				</div>
+				<p class="modal-p">I led a 5-person team at Wipro PARI to deliver robotics projects. I implemented Agile-like tracking and focused on KPI ownership (Cost, Quality, Safety).</p>
 				<div class="modal-tech">Tech: Agile, Stakeholder Management, KPI Tracking</div>
 			</div>
 		</div>
@@ -375,11 +387,7 @@
 				<h3 class="modal-h3">The Problem</h3>
 				<p class="modal-p">Tracking the Bill of Materials (BOM) for large-scale engineering projects at Wipro PARI was complex and prone to inventory mismatches.</p>
 				<h3 class="modal-h3">The Methodology</h3>
-				<p class="modal-p">I developed a comprehensive Inventory Management system using MS Excel and PowerBI. This system tracked component usage against the BOM, visualized stock levels, and forecasted shortages. This analytics tool streamlined the procurement process and reduced project delays due to part unavailability.</p>
-				<div class="modal-images">
-					<div class="modal-img-placeholder">Excel Dashboard</div>
-					<div class="modal-img-placeholder">PowerBI Report</div>
-				</div>
+				<p class="modal-p">I developed a comprehensive Inventory Management system using MS Excel and PowerBI. This system tracked component usage against the BOM, visualized stock levels, and forecasted shortages.</p>
 				<div class="modal-tech">Tech: Excel (VLOOKUP, Solver), PowerBI, Data Analytics</div>
 			</div>
 		</div>
