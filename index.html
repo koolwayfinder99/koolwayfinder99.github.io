@@ -33,20 +33,20 @@
 			/* --- 4. INFINITE SCROLL ANIMATION --- */
 			.greeting-container {
 				display: block;
-				font-size: 0.8em;
+				font-size: 0.85em;
 				color: #00acc1;
 				font-weight: 600;
-				margin-bottom: 0.2em;
+				margin-bottom: 1.2em; /* Added space between greeting and headline */
 				text-transform: uppercase;
-				letter-spacing: 2px;
+				letter-spacing: 2.5px;
 				height: 1.2em;
 				line-height: 1.2em;
 				overflow: hidden;
+				text-align: left; /* Ensures proper left alignment */
 			}
 
 			.greeting-wrapper {
 				display: block;
-				/* 12s duration for 6 items (5 words + 1 duplicate) */
 				animation: slide-up 12s cubic-bezier(0.23, 1, 0.32, 1) infinite;
 				will-change: transform;
 			}
@@ -160,18 +160,17 @@
 
 				<section id="one">
 						<header class="major">
-							<h2>
-								<div class="greeting-container">
-									<span class="greeting-wrapper">
-										<span class="greeting-word">Hello,</span>
-										<span class="greeting-word">Hallo,</span>
-										<span class="greeting-word">Hola,</span>
-										<span class="greeting-word">Ciao,</span>
-										<span class="greeting-word">Namaste,</span>
-										<span class="greeting-word">Hello,</span> </span>
-								</div>
-								Engineered from Steel to Silicon
-							</h2>
+							<div class="greeting-container">
+								<span class="greeting-wrapper">
+									<span class="greeting-word">Hello,</span>
+									<span class="greeting-word">Hallo,</span>
+									<span class="greeting-word">Hola,</span>
+									<span class="greeting-word">Ciao,</span>
+									<span class="greeting-word">Namaste,</span>
+									<span class="greeting-word">Hello,</span>
+								</span>
+							</div>
+							<h2>Engineered from Steel to Silicon</h2>
 						</header>
 						<p>My journey began in <b>Mechanical Engineering</b> ("Steel"), understanding the physical world of dynamics and manufacturing. However, I realized the future was in designing the "brain."</p>
 						<p>I transitioned into <b>Robotics & AI</b> ("Silicon"), mastering <b>ROS2, C++, and Control Systems</b>. Today, I combine these worlds, using my <b>Project Management</b> skills to lead complex developments where hardware meets software.</p>
@@ -318,6 +317,7 @@
 							</div>
 						</div>
 					</section>
+
 			</div>
 
 		<div id="modal-ros" class="modal-overlay" onclick="closeModal(event)">
