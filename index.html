@@ -36,7 +36,7 @@
 				font-size: 0.85em;
 				color: #00acc1;
 				font-weight: 600;
-				margin-bottom: 1.2em; /* Added space between greeting and headline */
+				margin-bottom: 1.5em; /* Increased spacing for better alignment */
 				text-transform: uppercase;
 				letter-spacing: 2.5px;
 				height: 1.2em;
@@ -393,16 +393,24 @@
 		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script>
-				function openModal(id) { document.getElementById(id).style.display = "flex"; }
-				function closeModal(e) { if(e.target.className === "modal-overlay") e.target.style.display = "none"; }
-				function forceClose(id) { document.getElementById(id).style.display = "none"; }
-			</script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+			function openModal(id) { document.getElementById(id).style.display = "flex"; }
+			function closeModal(e) { if(e.target.className === "modal-overlay") e.target.style.display = "none"; }
+			function forceClose(id) { document.getElementById(id).style.display = "none"; }
+		</script>
+		
+		<script>
+			window.addEventListener('load', function() {
+				setTimeout(function() {
+					document.body.classList.remove('is-preload');
+				}, 500); // Forces the loading screen to disappear after 0.5 seconds
+			});
+		</script>
 
 	</body>
 </html>
