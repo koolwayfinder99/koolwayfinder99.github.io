@@ -24,13 +24,18 @@
 				background-repeat: repeat, no-repeat;
 			}
 
-			/* --- 2. WHITE THEME & VISIBILITY --- */
+			/* --- 2. THEME & TYPOGRAPHY --- */
 			body { background-color: #ffffff; color: #555555; }
 			#main { background-color: #ffffff; margin-left: 35%; max-width: 65%; }
+			
 			h1, h2, h3, h4, h5, h6, strong, b { color: #333333; }
+			h2 { margin-bottom: 1em; font-weight: 600; }
+			p { margin-bottom: 1.5em; line-height: 1.8; }
+
+			/* Header Text Override (White on Dark Sidebar) */
 			#header h1, #header h2, #header p, #header strong { color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
 			
-			/* --- 3. PHOTO STYLING (Professional Border & Shadow) --- */
+			/* --- 3. PHOTO STYLING --- */
 			#header .image.avatar img { 
 				border: 3px solid #00acc1; 
 				box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -38,19 +43,17 @@
 			}
 			#header .image.avatar:hover img { transform: scale(1.02); }
 
-			/* --- 4. CYAN THEME --- */
+			/* --- 4. CYAN ACCENT THEME --- */
 			a { color: #00acc1; border-bottom-color: rgba(0, 172, 193, 0.5); }
 			a:hover { border-bottom-color: transparent; color: #00838f; }
+			
 			.button { border-color: #00acc1; color: #00acc1 !important; }
 			.button:hover { background-color: rgba(0, 172, 193, 0.1); border-color: #00838f; color: #00838f !important; }
+			
 			.button.primary { background-color: #00acc1; color: #ffffff !important; border-color: #00acc1; }
 			.button.primary:hover { background-color: #00838f; }
 
-			/* --- 5. ICON SPACING FIX (De-cluttering) --- */
-			.icons li { padding-right: 1.5em !important; }
-			.feature-icons li { margin-bottom: 2em !important; }
-
-			/* --- 6. INFINITE SCROLL ANIMATION --- */
+			/* --- 5. GREETING ANIMATION (Infinite Loop Fix) --- */
 			.greeting-container {
 				display: block;
 				font-size: 0.85em;
@@ -59,15 +62,16 @@
 				margin-bottom: 1.5em;
 				text-transform: uppercase;
 				letter-spacing: 2.5px;
-				height: 1.2em;
+				height: 1.2em; 
 				line-height: 1.2em;
 				overflow: hidden;
 				text-align: left;
-				white-space: nowrap; /* Prevents wrapping bugs */
+				white-space: nowrap;
 			}
 
 			.greeting-wrapper {
 				display: block;
+				/* 6 items, ~2s per item. 12s total loop */
 				animation: slide-up 12s cubic-bezier(0.23, 1, 0.32, 1) infinite;
 				will-change: transform;
 			}
@@ -80,17 +84,19 @@
 			}
 
 			@keyframes slide-up {
-				0%, 12%      { transform: translateY(0); }         /* 1. Hello */
-				16.6%, 28.6% { transform: translateY(-1.2em); }    /* 2. Hallo */
-				33.3%, 45.3% { transform: translateY(-2.4em); }    /* 3. Hola */
-				50%, 62%     { transform: translateY(-3.6em); }    /* 4. Ciao */
-				66.6%, 78.6% { transform: translateY(-4.8em); }    /* 5. Namaste */
-				83.3%, 100%  { transform: translateY(-6.0em); }    /* 6. Hello (Duplicate) */
+				/* 6 Steps: 0, -1.2, -2.4, -3.6, -4.8, -6.0(Reset) */
+				0%, 12%      { transform: translateY(0); }         
+				16.6%, 28.6% { transform: translateY(-1.2em); }    
+				33.3%, 45.3% { transform: translateY(-2.4em); }    
+				50%, 62%     { transform: translateY(-3.6em); }    
+				66.6%, 78.6% { transform: translateY(-4.8em); }    
+				83.3%, 100%  { transform: translateY(-6.0em); }    
 			}
 
-			/* --- 7. COMPACT SKILL CARDS --- */
+			/* --- 6. TECH STACK & MODALS --- */
 			.tech-stack-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 2em; }
 			.skill-wrapper { width: 45%; max-width: 320px; display: flex; flex-direction: column; cursor: pointer; }
+			
 			.code-card {
 				background: #1e1e1e; border-radius: 6px; padding: 15px; font-family: 'Consolas', 'Monaco', monospace;
 				font-size: 0.7em; color: #d4d4d4; border-left: 4px solid #555; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
@@ -112,7 +118,7 @@
 			.ros-log { animation: blink 2s infinite; }
 			@keyframes blink { 50% { opacity: 0; } }
 			
-			/* Language Colors */
+			/* Border Colors */
 			.card-python { border-left-color: #3572A5; }
 			.card-cpp    { border-left-color: #f34b7d; }
 			.card-ros    { border-left-color: #22b455; }
@@ -120,7 +126,7 @@
 			.card-pm     { border-left-color: #0052cc; }
 			.card-excel  { border-left-color: #1D6F42; }
 
-			/* --- 8. MODALS --- */
+			/* --- 7. MODALS --- */
 			.modal-overlay {
 				position: fixed; top: 0; left: 0; width: 100%; height: 100%;
 				background: rgba(255, 255, 255, 0.98);
@@ -141,14 +147,31 @@
 			.modal-p { font-size: 1em; line-height: 1.6; color: #666; margin-bottom: 10px; }
 			.modal-tech { background: rgba(0, 172, 193, 0.1); color: #00838f; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-top: 15px; font-family: monospace; font-size: 0.9em; font-weight: bold; }
 			
-			/* --- 9. TIMELINE (Education/Experience) --- */
+			/* --- 8. TIMELINE & CONTACT --- */
 			.timeline-item { border-left: 2px solid #00acc1; padding-left: 20px; margin-bottom: 30px; position: relative; }
 			.timeline-item::before { content: ''; width: 12px; height: 12px; background: #00acc1; border-radius: 50%; position: absolute; left: -7px; top: 0; }
 			.timeline-item .date { color: #999; font-size: 0.9em; font-style: italic; margin-bottom: 10px; }
 			
+			/* Compact Contact Section */
+			.contact-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 30px;
+				align-items: center;
+				background: #f9f9f9;
+				padding: 25px;
+				border-radius: 8px;
+				border-left: 4px solid #00acc1;
+			}
+			.contact-text { flex: 1; min-width: 250px; font-size: 0.95em; }
+			.contact-icons { flex: 0 0 auto; }
+			.feature-icons li { margin-bottom: 0.5em !important; display: block; }
+			.feature-icons a { border-bottom: none; font-weight: 600; }
+
 			@media screen and (max-width: 736px) {
 				.skill-wrapper { width: 100%; max-width: 100%; }
 				#main { margin-left: 0; max-width: 100%; }
+				.contact-row { flex-direction: column; align-items: flex-start; }
 			}
 		</style>
 	</head>
@@ -193,7 +216,8 @@
 									<span class="greeting-word">Hola,</span>
 									<span class="greeting-word">Ciao,</span>
 									<span class="greeting-word">Namaste,</span>
-									<span class="greeting-word">Hello,</span> </span>
+									<span class="greeting-word">Hello,</span> 
+								</span>
 							</div>
 							<h2>Engineered from Steel to Silicon</h2>
 						</header>
@@ -209,32 +233,32 @@
 						<h2>Selected Projects</h2>
 						<div class="row">
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="images/proj-omni.jpg" alt="Omnidirectional Robot" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Omnidirectional+Robot'"/></a>
+								<a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="Omnidirectional Robot" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Omnidirectional+Robot'"/></a>
 								<h3>Holonomic Omnidirectional Robot</h3>
 								<p><b>ROS2 & Kinematics:</b> Designed optimal kinematic models for mobile manipulation tasks.</p>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="images/proj-arm.jpg" alt="SPM Automation" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=SPM+Automation'"/></a>
+								<a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="SPM Automation" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=SPM+Automation'"/></a>
 								<h3>SPM Automation Logic</h3>
 								<p><b>C++ & Controls:</b> Engineered control logic for Special Purpose Machines, reducing cycle time by 10%.</p>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="images/proj-vision.jpg" alt="AI Decision Models" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=AI+Decision+Models'"/></a>
+								<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="AI Decision Models" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=AI+Decision+Models'"/></a>
 								<h3>AI Decision Models</h3>
 								<p><b>Python & ML:</b> Developed automated decision-making algorithms improving accuracy by 10%.</p>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="images/proj-amr.jpg" alt="Autonomous Mobile Robot" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Autonomous+Mobile+Robot'"/></a>
+								<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="Autonomous Mobile Robot" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Autonomous+Mobile+Robot'"/></a>
 								<h3>Autonomous Mobile Robot</h3>
 								<p><b>ROS2 & SLAM:</b> Custom navigation stack for unstructured environments. Reduced latency by 30%.</p>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="images/proj-drone.jpg" alt="Drone Stabilization" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Drone+Stabilization'"/></a>
+								<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="Drone Stabilization" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Drone+Stabilization'"/></a>
 								<h3>Drone Stabilization</h3>
 								<p><b>Controls & PID:</b> Tuned cascade PID controllers for stable quadcopter flight under load.</p>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="images/proj-excel.jpg" alt="Excel Analytics" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Inventory+Analytics'"/></a>
+								<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="Excel Analytics" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Inventory+Analytics'"/></a>
 								<h3>Inventory Analytics</h3>
 								<p><b>Excel & PowerBI:</b> Streamlined procurement with automated BOM tracking dashboards.</p>
 							</article>
@@ -249,7 +273,6 @@
 						<p>Click any panel to see the detailed project breakdown behind the skill.</p>
 
 						<div class="tech-stack-container">
-
 							<div class="skill-wrapper" onclick="openModal('modal-ros')">
 								<div class="code-card ros-terminal">
 									<div class="comment"># ROS2 Architecture</div>
@@ -260,7 +283,6 @@
 								</div>
 								<div class="skill-label">Robotics Middleware</div>
 							</div>
-
 							<div class="skill-wrapper" onclick="openModal('modal-python')">
 								<div class="code-card card-python">
 									<div class="comment"># Python: AI & CV</div>
@@ -271,7 +293,6 @@
 								</div>
 								<div class="skill-label">AI & Prototyping</div>
 							</div>
-
 							<div class="skill-wrapper" onclick="openModal('modal-cpp')">
 								<div class="code-card card-cpp">
 									<div class="comment">// C++: Real-time</div>
@@ -282,7 +303,6 @@
 								</div>
 								<div class="skill-label">Hardware Control</div>
 							</div>
-
 							<div class="skill-wrapper" onclick="openModal('modal-control')">
 								<div class="code-card card-control">
 									<div class="comment"># PID Tuning</div>
@@ -294,7 +314,6 @@
 								</div>
 								<div class="skill-label">Control Systems</div>
 							</div>
-
 							<div class="skill-wrapper" onclick="openModal('modal-pm')">
 								<div class="code-card card-pm" style="background: #eef; color: #333;">
 									<div style="margin-bottom: 5px;">
@@ -308,7 +327,6 @@
 								</div>
 								<div class="skill-label">Agile Management</div>
 							</div>
-
 							<div class="skill-wrapper" onclick="openModal('modal-excel')">
 								<div class="code-card card-excel" style="padding:0; overflow:hidden; background: #222;">
 									<div class="excel-header">Data.xlsx</div>
@@ -325,7 +343,6 @@
 								</div>
 								<div class="skill-label">Data Analytics</div>
 							</div>
-
 						</div>
 					</section>
 
@@ -369,13 +386,18 @@
 
 				<section id="four">
 						<h2>Get In Touch</h2>
-						<div class="row">
-							<div class="col-8 col-12-small">
+						<div class="contact-row">
+							<div class="contact-text">
+								<p>
+									<strong style="color: #00acc1; text-transform: uppercase;">Open to Work</strong><br/>
+									I am actively seeking internship opportunities in <strong>Robotics</strong> and <strong>Project Management</strong> roles across Europe (specifically Germany & Spain). If you are looking for a dedicated engineer who bridges the gap between hardware and AI, I invite you to engage with me.
+								</p>
+							</div>
+							<div class="contact-icons">
 								<ul class="feature-icons">
 									<li class="icon solid fa-envelope"><a href="mailto:anukools09@gmail.com">anukools09@gmail.com</a></li>
-									<li class="icon solid fa-envelope"><a href="mailto:bestpersontohire2026@outlook.com">bestpersontohire2026@outlook.com</a></li>
-									<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank">linkedin.com/in/anukool-shidhore</a></li>
-									<li class="icon brands fa-github"><a href="https://github.com/koolwayfinder99" target="_blank">github.com/koolwayfinder99</a></li>
+									<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank">LinkedIn Profile</a></li>
+									<li class="icon brands fa-github"><a href="https://github.com/koolwayfinder99" target="_blank">GitHub Profile</a></li>
 								</ul>
 							</div>
 						</div>
@@ -460,18 +482,32 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		
 		<script>
+			// Modal Logic
 			function openModal(id) { document.getElementById(id).style.display = "flex"; }
 			function closeModal(e) { if(e.target.className === "modal-overlay") e.target.style.display = "none"; }
 			function forceClose(id) { document.getElementById(id).style.display = "none"; }
-		</script>
-		
-		<script>
-			window.addEventListener('load', function() {
-				setTimeout(function() {
+			
+			// Critical Fix: Robust Loading Loop Removal
+			(function() {
+				var removePreload = function() {
 					document.body.classList.remove('is-preload');
-				}, 500); // Forces the loading screen to disappear after 0.5 seconds
-			});
+				};
+				
+				// 1. Try normal load event
+				window.addEventListener('load', function() {
+					setTimeout(removePreload, 200);
+				});
+
+				// 2. Fallback: If readyState is complete (e.g. cached), run immediately
+				if (document.readyState === 'complete') {
+					setTimeout(removePreload, 100);
+				}
+
+				// 3. Safety: Force remove after 3 seconds in case scripts fail
+				setTimeout(removePreload, 3000);
+			})();
 		</script>
 
 	</body>
