@@ -4,7 +4,7 @@
   <title>Anukool Shidhore | Robotics Engineer</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <meta name="description" content="Robotics Engineer & Project Manager bridging Mechanical Engineering and AI. Expertise in ROS2, C++, Control Systems, and Robotics.">
+  <meta name="description" content="Robotics Engineer & Project Manager bridging Mechanical Engineering and AI.">
   <meta name="author" content="Anukool Shidhore">
   
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -39,18 +39,28 @@
     }
     #header h1, #header p { color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
     
-    /* --- PROFILE PICTURE FIX --- */
+    /* --- PROFILE PICTURE FORCE FIX --- */
+    #header .image.avatar {
+        display: block;
+        margin: 0 auto 1em auto;
+        width: 150px; 
+        height: 150px;
+        border: none;
+    }
+
     #header .image.avatar img { 
+      /* Force Square Aspect Ratio */
+      width: 150px !important;
+      height: 150px !important;
+      
+      /* Crop to fit circle perfectly */
+      object-fit: cover !important;
+      
+      /* Visual Styling */
+      border-radius: 50% !important;
       border: 3px solid var(--accent); 
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       transition: transform 0.3s ease;
-      
-      /* Force Perfect Circle */
-      width: 150px;          /* Fixed width */
-      height: 150px;         /* Fixed height to match width */
-      object-fit: cover;     /* Crops image to fit without stretching */
-      border-radius: 50%;    /* Creates the circle */
-      aspect-ratio: 1 / 1;   /* Modern browser fallback for square ratio */
     }
     #header .image.avatar:hover img { transform: scale(1.02); }
 
@@ -229,7 +239,7 @@
   <header id="header">
     <div class="inner">
       <a href="#" class="image avatar">
-        <img src="images/Linkedin_Profile_2.png" alt="Anukool Shidhore" loading="eager">
+        <img src="images/Linkedin_Profile_2.png?v=2" alt="Anukool Shidhore" loading="eager">
       </a>
       <h1>
         <strong>I am Anukool Shidhore</strong>,<br />
