@@ -4,7 +4,7 @@
   <title>Anukool Shidhore | Robotics Engineer</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <meta name="description" content="Robotics Engineer & Project Manager bridging Mechanical Engineering and AI. Expertise in ROS2, C++, Control Systems, and Robotics.">
+  <meta name="description" content="Robotics Engineer & Project Manager bridging Mechanical Engineering and AI.">
   <meta name="author" content="Anukool Shidhore">
   
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -23,11 +23,12 @@
       --bg-color: #ffffff;
       --text-color: #555555;
       --heading-color: #333333;
+      --card-bg: #f8f9fa;
     }
 
     body { background: var(--bg-color); color: var(--text-color); }
     h1, h2, h3, h4, h5, h6, strong, b { color: var(--heading-color); }
-    a { color: var(--accent); border-bottom-color: rgba(0,172,193,0.5); }
+    a { color: var(--accent); border-bottom-color: rgba(0,172,193,0.5); transition: all 0.2s ease; }
     a:hover { color: var(--accent-dark); border-bottom-color: transparent; }
 
     /* SIDEBAR & PHOTO */
@@ -46,40 +47,22 @@
 
     /* ICON SPACING */
     .icons li { padding-right: 1.5em !important; }
-    .feature-icons li { margin-bottom: 2em !important; }
-
-    /* GREETING ANIMATION FIX */
+    
+    /* GREETING ANIMATION */
     .greeting-container {
-      display: block;
-      font-size: 0.85em;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 1.5em;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      height: 1.2em;
-      line-height: 1.2em;
-      overflow: hidden;
-      white-space: nowrap;
-      text-align: left;
+      display: block; font-size: 0.85em; color: var(--accent); font-weight: 600;
+      margin-bottom: 1.5em; text-transform: uppercase; letter-spacing: 2.5px;
+      height: 1.2em; line-height: 1.2em; overflow: hidden; white-space: nowrap;
     }
-    .greeting-wrapper {
-      display: block;
-      animation: slide-up 12s cubic-bezier(0.23, 1, 0.32, 1) infinite;
-    }
-    .greeting-word {
-      display: block;
-      height: 1.2em;
-      line-height: 1.2em;
-      color: var(--accent);
-    }
+    .greeting-wrapper { display: block; animation: slide-up 12s cubic-bezier(0.23, 1, 0.32, 1) infinite; }
+    .greeting-word { display: block; height: 1.2em; line-height: 1.2em; color: var(--accent); }
     @keyframes slide-up {
-      0%, 12%      { transform: translateY(0); }         
-      16.6%, 28.6% { transform: translateY(-1.2em); }    
-      33.3%, 45.3% { transform: translateY(-2.4em); }    
-      50%, 62%     { transform: translateY(-3.6em); }    
-      66.6%, 78.6% { transform: translateY(-4.8em); }    
-      83.3%, 100%  { transform: translateY(-6.0em); }    
+      0%, 12% { transform: translateY(0); }
+      16.6%, 28.6% { transform: translateY(-1.2em); }
+      33.3%, 45.3% { transform: translateY(-2.4em); }
+      50%, 62% { transform: translateY(-3.6em); }
+      66.6%, 78.6% { transform: translateY(-4.8em); }
+      83.3%, 100% { transform: translateY(-6.0em); }
     }
 
     /* SKILL CARDS */
@@ -108,7 +91,106 @@
     .ros-log { animation: blink 2s infinite; }
     @keyframes blink { 50% { opacity: 0; } }
 
-    /* MODALS */
+    /* --- NEW CONTACT SECTION STYLES --- */
+    .contact-container {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 10px 0;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      background: rgba(0, 172, 193, 0.1);
+      color: var(--accent-dark);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.85em;
+      font-weight: 700;
+      margin-bottom: 1.5em;
+      border: 1px solid rgba(0, 172, 193, 0.3);
+    }
+    
+    .status-dot {
+      height: 10px; width: 10px;
+      background-color: #22b455;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+      animation: pulse-green 2s infinite;
+    }
+
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(34, 180, 85, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(34, 180, 85, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 180, 85, 0); }
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 2em;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      background: white;
+      box-shadow: 0 8px 20px rgba(0, 172, 193, 0.15);
+    }
+
+    .contact-card h3 {
+      font-size: 1em;
+      margin: 0;
+      color: var(--heading-color);
+    }
+
+    .contact-card span {
+      font-size: 0.85em;
+      color: #777;
+    }
+
+    .icon-circle {
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      color: var(--accent);
+      border: 1px solid #eee;
+      transition: background 0.3s;
+    }
+
+    .contact-card:hover .icon-circle {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .cta-text {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #555;
+      max-width: 90%;
+    }
+
+    /* --- MODALS --- */
     .modal-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(255, 255, 255, 0.98);
@@ -129,6 +211,7 @@
     @media screen and (max-width: 736px) {
       .skill-wrapper { width: 100%; max-width: 100%; }
       #main { margin-left: 0; max-width: 100%; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -328,15 +411,58 @@
 
     <section id="four">
       <h2>Get In Touch</h2>
-      <p>I am actively seeking internship opportunities in <strong>Robotics</strong> and <strong>Project Management</strong> roles across Europe (specifically Germany & Spain). If you are looking for a dedicated engineer who bridges the gap between hardware and AI, I invite you to engage with me.</p>
-      <div class="row">
-        <div class="col-8 col-12-small">
-          <ul class="feature-icons">
-            <li class="icon solid fa-envelope"><a href="mailto:anukools09@gmail.com">anukools09@gmail.com</a></li>
-            <li class="icon solid fa-envelope"><a href="mailto:bestpersontohire2026@outlook.com">bestpersontohire2026@outlook.com</a></li>
-            <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank">linkedin.com/in/anukool-shidhore</a></li>
-            <li class="icon brands fa-github"><a href="https://github.com/koolwayfinder99" target="_blank">github.com/koolwayfinder99</a></li>
-          </ul>
+      <div class="contact-container">
+        
+        <div class="status-badge">
+          <span class="status-dot"></span> Open to Work
+        </div>
+
+        <p class="cta-text">
+          I am actively seeking internship opportunities in <strong>Robotics</strong> and <strong>Project Management</strong> roles across Europe (specifically Germany & Spain). If you are looking for a dedicated engineer who bridges the gap between hardware and AI, I invite you to engage with me.
+        </p>
+
+        <div class="contact-grid">
+          
+          <a href="mailto:anukools09@gmail.com" class="contact-card">
+            <div class="icon-circle">
+              <i class="icon solid fa-envelope"></i>
+            </div>
+            <div class="card-details">
+              <h3>Email</h3>
+              <span>anukools09@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank" class="contact-card">
+            <div class="icon-circle">
+              <i class="icon brands fa-linkedin"></i>
+            </div>
+            <div class="card-details">
+              <h3>LinkedIn</h3>
+              <span>Connect professionally</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/koolwayfinder99" target="_blank" class="contact-card">
+            <div class="icon-circle">
+              <i class="icon brands fa-github"></i>
+            </div>
+            <div class="card-details">
+              <h3>GitHub</h3>
+              <span>Explore my code</span>
+            </div>
+          </a>
+
+          <a href="mailto:bestpersontohire2026@outlook.com" class="contact-card">
+            <div class="icon-circle">
+              <i class="icon solid fa-paper-plane"></i>
+            </div>
+            <div class="card-details">
+              <h3>Outlook</h3>
+              <span>bestpersontohire2026</span>
+            </div>
+          </a>
+
         </div>
       </div>
     </section>
@@ -350,7 +476,7 @@
       <h3 class="modal-h3">The Problem</h3>
       <p class="modal-p">Standard differential drive robots lack the maneuverability required for complex mobile manipulation in constrained environments.</p>
       <h3 class="modal-h3">The Methodology</h3>
-      <p class="modal-p">I conducted the "Kinematic and optimal design of a three-wheeled holonomic omnidirectional robot platform". This involved deriving kinematic equations for the 3-wheel configuration and implementing them in a ROS2 environment.</p>
+      <p class="modal-p">Conducted the "Kinematic and optimal design of a three-wheeled holonomic omnidirectional robot platform". This involved deriving kinematic equations for the 3-wheel configuration and implementing them in a ROS2 environment.</p>
       <div class="modal-tech">Tech: ROS2, Gazebo, Kinematics</div>
     </div>
   </div>
@@ -362,7 +488,7 @@
       <h3 class="modal-h3">The Problem</h3>
       <p class="modal-p">Legacy systems relied on manual data interpretation, which was slow and prone to errors.</p>
       <h3 class="modal-h3">The Methodology</h3>
-      <p class="modal-p">As an AI Research Assistant at IBM Skills Build, I developed 4 distinct AI solutions using Python. I executed data analysis on datasets to prepare and validate data, which improved model accuracy by 10%.</p>
+      <p class="modal-p">As an AI Research Assistant at IBM Skills Build, developed 4 distinct AI solutions using Python. Executed data analysis on datasets to prepare and validate data, which improved model accuracy by 10%.</p>
       <div class="modal-tech">Tech: Python, Pandas, Scikit-Learn</div>
     </div>
   </div>
@@ -374,7 +500,7 @@
       <h3 class="modal-h3">The Problem</h3>
       <p class="modal-p">Production cycle times for Special Purpose Machines (SPMs) needed reduction to meet high-speed automation targets.</p>
       <h3 class="modal-h3">The Methodology</h3>
-      <p class="modal-p">At Wipro PARI, I applied core robotics and kinematic principles to develop SPM control logic using C++. By optimizing the motion profiles and logic execution, I successfully reduced the production cycle time by 10%.</p>
+      <p class="modal-p">At Wipro PARI, applied core robotics and kinematic principles to develop SPM control logic using C++. By optimizing the motion profiles and logic execution, successfully reduced the production cycle time by 10%.</p>
       <div class="modal-tech">Tech: C++, Industrial Automation, Motion Control</div>
     </div>
   </div>
@@ -386,7 +512,7 @@
       <h3 class="modal-h3">The Problem</h3>
       <p class="modal-p">Competitive racing vehicles required superior maneuverability and stability to succeed in ATVC competitions.</p>
       <h3 class="modal-h3">The Methodology</h3>
-      <p class="modal-p">I led the Vehicle Dynamics Team, achieving top placements through suspension and braking system optimization. I designed the vehicle's dynamic model using engineering principles to ensure stability.</p>
+      <p class="modal-p">Led the Vehicle Dynamics Team, achieving top placements through suspension and braking system optimization. Designed the vehicle's dynamic model using engineering principles to ensure stability.</p>
       <div class="modal-tech">Tech: MATLAB/Simulink, ANSYS, Vehicle Dynamics</div>
     </div>
   </div>
@@ -398,7 +524,7 @@
       <h3 class="modal-h3">The Problem</h3>
       <p class="modal-p">Delivering complex robotics projects on strict deadlines while maintaining team productivity.</p>
       <h3 class="modal-h3">The Methodology</h3>
-      <p class="modal-p">I led a 5-person team at Wipro PARI to deliver robotics projects. I implemented Agile-like tracking and focused on KPI ownership (Cost, Quality, Safety).</p>
+      <p class="modal-p">Led a 5-person team at Wipro PARI to deliver robotics projects. Implemented Agile-like tracking and focused on KPI ownership (Cost, Quality, Safety).</p>
       <div class="modal-tech">Tech: Agile, Stakeholder Management, KPI Tracking</div>
     </div>
   </div>
@@ -410,7 +536,7 @@
       <h3 class="modal-h3">The Problem</h3>
       <p class="modal-p">Tracking the Bill of Materials (BOM) for large-scale engineering projects at Wipro PARI was complex and prone to inventory mismatches.</p>
       <h3 class="modal-h3">The Methodology</h3>
-      <p class="modal-p">I developed a comprehensive Inventory Management system using MS Excel and PowerBI. This system tracked component usage against the BOM, visualized stock levels, and forecasted shortages.</p>
+      <p class="modal-p">Developed a comprehensive Inventory Management system using MS Excel and PowerBI. This system tracked component usage against the BOM, visualized stock levels, and forecasted shortages.</p>
       <div class="modal-tech">Tech: Excel (VLOOKUP, Solver), PowerBI, Data Analytics</div>
     </div>
   </div>
