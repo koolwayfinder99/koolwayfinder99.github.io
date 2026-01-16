@@ -1,555 +1,426 @@
 <!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Anukool Shidhore | Robotics Engineer</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="Robotics Engineer & Project Manager bridging Mechanical Engineering and AI.">
-		<meta name="author" content="Anukool Shidhore">
+<html lang="en">
+<head>
+  <title>Anukool Shidhore | Robotics Engineer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="description" content="Robotics Engineer & Project Manager bridging Mechanical Engineering and AI. Expertise in ROS2, C++, Control Systems, and Robotics.">
+  <meta name="author" content="Anukool Shidhore">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="shortcut icon" href="favicon.ico">
 
-		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-		<link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-		<link rel="stylesheet" href="assets/css/main.css" />
-		
-		<style>
-			/* --- 1. SIDEBAR BACKGROUND OVERRIDE --- */
-			#header {
-				background-image: url("assets/css/images/overlay.png"), url("images/bg.jpg");
-				background-position: top left, center center;
-				background-size: auto, cover;
-				background-repeat: repeat, no-repeat;
-			}
+  <style>
+    :root {
+      --accent: #00acc1;
+      --accent-dark: #00838f;
+      --bg-color: #ffffff;
+      --text-color: #555555;
+      --heading-color: #333333;
+    }
 
-			/* --- 2. THEME & TYPOGRAPHY --- */
-			body { background-color: #ffffff; color: #555555; }
-			#main { background-color: #ffffff; margin-left: 35%; max-width: 65%; }
-			
-			h1, h2, h3, h4, h5, h6, strong, b { color: #333333; }
-			h2 { margin-bottom: 1em; font-weight: 600; }
-			p { margin-bottom: 1.5em; line-height: 1.8; }
+    body { background: var(--bg-color); color: var(--text-color); }
+    h1, h2, h3, h4, h5, h6, strong, b { color: var(--heading-color); }
+    a { color: var(--accent); border-bottom-color: rgba(0,172,193,0.5); }
+    a:hover { color: var(--accent-dark); border-bottom-color: transparent; }
 
-			/* Header Text Override (White on Dark Sidebar) */
-			#header h1, #header h2, #header p, #header strong { color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
-			
-			/* --- 3. PHOTO STYLING --- */
-			#header .image.avatar img { 
-				border: 3px solid #00acc1; 
-				box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-				transition: transform 0.3s ease;
-			}
-			#header .image.avatar:hover img { transform: scale(1.02); }
+    /* SIDEBAR & PHOTO */
+    #header {
+      background-image: url("assets/css/images/overlay.png"), url("images/bg.jpg");
+      background-position: top left, center center;
+      background-size: auto, cover;
+    }
+    #header h1, #header p { color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+    #header .image.avatar img { 
+      border: 3px solid var(--accent); 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    #header .image.avatar:hover img { transform: scale(1.02); }
 
-			/* --- 4. CYAN ACCENT THEME --- */
-			a { color: #00acc1; border-bottom-color: rgba(0, 172, 193, 0.5); }
-			a:hover { border-bottom-color: transparent; color: #00838f; }
-			
-			.button { border-color: #00acc1; color: #00acc1 !important; }
-			.button:hover { background-color: rgba(0, 172, 193, 0.1); border-color: #00838f; color: #00838f !important; }
-			
-			.button.primary { background-color: #00acc1; color: #ffffff !important; border-color: #00acc1; }
-			.button.primary:hover { background-color: #00838f; }
+    /* ICON SPACING */
+    .icons li { padding-right: 1.5em !important; }
+    .feature-icons li { margin-bottom: 2em !important; }
 
-			/* --- 5. GREETING ANIMATION (Infinite Loop Fix) --- */
-			.greeting-container {
-				display: block;
-				font-size: 0.85em;
-				color: #00acc1;
-				font-weight: 600;
-				margin-bottom: 1.5em;
-				text-transform: uppercase;
-				letter-spacing: 2.5px;
-				height: 1.2em; 
-				line-height: 1.2em;
-				overflow: hidden;
-				text-align: left;
-				white-space: nowrap;
-			}
+    /* GREETING ANIMATION FIX */
+    .greeting-container {
+      display: block;
+      font-size: 0.85em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.5em;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      height: 1.2em;
+      line-height: 1.2em;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: left;
+    }
+    .greeting-wrapper {
+      display: block;
+      animation: slide-up 12s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+    }
+    .greeting-word {
+      display: block;
+      height: 1.2em;
+      line-height: 1.2em;
+      color: var(--accent);
+    }
+    @keyframes slide-up {
+      0%, 12%      { transform: translateY(0); }         
+      16.6%, 28.6% { transform: translateY(-1.2em); }    
+      33.3%, 45.3% { transform: translateY(-2.4em); }    
+      50%, 62%     { transform: translateY(-3.6em); }    
+      66.6%, 78.6% { transform: translateY(-4.8em); }    
+      83.3%, 100%  { transform: translateY(-6.0em); }    
+    }
 
-			.greeting-wrapper {
-				display: block;
-				/* 6 items, ~2s per item. 12s total loop */
-				animation: slide-up 12s cubic-bezier(0.23, 1, 0.32, 1) infinite;
-				will-change: transform;
-			}
+    /* SKILL CARDS */
+    .tech-stack-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 2em; }
+    .skill-wrapper { width: 45%; max-width: 320px; display: flex; flex-direction: column; cursor: pointer; }
+    .code-card {
+      background: #1e1e1e; border-radius: 6px; padding: 15px;
+      font-family: 'Consolas', 'Monaco', monospace; font-size: 0.7em; color: #d4d4d4;
+      border-left: 4px solid #555; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: all 0.3s ease; line-height: 1.4em;
+    }
+    .skill-wrapper:hover .code-card { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(0, 172, 193, 0.2); }
+    .skill-label { margin-top: 8px; text-align: center; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; font-size: 0.75em; }
 
-			.greeting-word {
-				display: block;
-				height: 1.2em;
-				line-height: 1.2em;
-				color: #00acc1;
-			}
+    /* CARD COLORS */
+    .card-python { border-left-color: #3572A5; }
+    .card-cpp    { border-left-color: #f34b7d; }
+    .card-ros    { border-left-color: #22b455; }
+    .card-control{ border-left-color: var(--accent); }
+    .card-pm     { border-left-color: #0052cc; }
+    .card-excel  { border-left-color: #1D6F42; }
+    .ros-terminal { color: var(--accent); }
+    .scope-grid { background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 15px 15px; height: 40px; width: 100%; position: relative; margin: 5px 0; }
+    .scope-line { position: absolute; top: 50%; width: 100%; height: 2px; background: var(--accent); box-shadow: 0 0 5px var(--accent); animation: stabilize 3s infinite ease-out; }
+    @keyframes stabilize { 0% {transform: scaleY(10);} 100% {transform: scaleY(1);} }
+    .ros-log { animation: blink 2s infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
 
-			@keyframes slide-up {
-				/* 6 Steps: 0, -1.2, -2.4, -3.6, -4.8, -6.0(Reset) */
-				0%, 12%      { transform: translateY(0); }         
-				16.6%, 28.6% { transform: translateY(-1.2em); }    
-				33.3%, 45.3% { transform: translateY(-2.4em); }    
-				50%, 62%     { transform: translateY(-3.6em); }    
-				66.6%, 78.6% { transform: translateY(-4.8em); }    
-				83.3%, 100%  { transform: translateY(-6.0em); }    
-			}
+    /* MODALS */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      display: none; justify-content: center; align-items: center; z-index: 10000;
+      backdrop-filter: blur(5px); overflow-y: auto;
+    }
+    .modal-content {
+      background: #ffffff; border: 1px solid var(--accent); padding: 40px;
+      border-radius: 10px; max-width: 700px; width: 90%; color: #555;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.1); position: relative; margin: 20px 0;
+    }
+    .modal-close { position: absolute; top: 15px; right: 20px; font-size: 2em; cursor: pointer; color: var(--accent); }
+    .modal-h2 { color: var(--accent); border-bottom: 2px solid #eee; padding-bottom: 15px; font-weight: 800; font-size: 1.5em; margin-bottom: 20px; }
+    .modal-h3 { color: #333; margin-top: 25px; font-weight: 700; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px; }
+    .modal-p { font-size: 1em; line-height: 1.6; color: #666; margin-bottom: 10px; }
+    .modal-tech { background: rgba(0, 172, 193, 0.1); color: var(--accent-dark); padding: 5px 10px; border-radius: 4px; display: inline-block; margin-top: 15px; font-family: monospace; font-size: 0.9em; font-weight: bold; }
 
-			/* --- 6. TECH STACK & MODALS --- */
-			.tech-stack-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 2em; }
-			.skill-wrapper { width: 45%; max-width: 320px; display: flex; flex-direction: column; cursor: pointer; }
-			
-			.code-card {
-				background: #1e1e1e; border-radius: 6px; padding: 15px; font-family: 'Consolas', 'Monaco', monospace;
-				font-size: 0.7em; color: #d4d4d4; border-left: 4px solid #555; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-				transition: all 0.3s ease; line-height: 1.4em;
-			}
-			.skill-wrapper:hover .code-card { transform: translateY(-5px); border-color: #00acc1; box-shadow: 0 10px 20px rgba(0, 172, 193, 0.2); }
-			.skill-label { margin-top: 8px; text-align: center; font-weight: 700; color: #00acc1; text-transform: uppercase; letter-spacing: 1px; font-size: 0.75em; }
+    @media screen and (max-width: 736px) {
+      .skill-wrapper { width: 100%; max-width: 100%; }
+      #main { margin-left: 0; max-width: 100%; }
+    }
+  </style>
+</head>
+<body class="is-preload">
 
-			/* Card Specifics */
-			.excel-header { background: #1D6F42; color: white; padding: 4px; font-weight: bold; margin: -15px -15px 10px -15px; font-size: 1.1em; }
-			.excel-sheet { display: grid; grid-template-columns: 25px 1fr 1fr; border: 1px solid #333; background: #222; }
-			.excel-cell { padding: 2px 4px; border: 1px solid #444; color: #eee; }
-			.excel-row-head { background: #333; text-align: center; }
-			.excel-formula { background: #333; padding: 3px; margin-top: 5px; font-family: monospace; border: 1px solid #444; color: #fff; }
-			.scope-grid { background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 15px 15px; height: 40px; width: 100%; position: relative; margin: 5px 0; }
-			.scope-line { position: absolute; top: 50%; width: 100%; height: 2px; background: #00acc1; box-shadow: 0 0 5px #00acc1; animation: stabilize 3s infinite ease-out; }
-			@keyframes stabilize { 0% {transform: scaleY(10);} 100% {transform: scaleY(1);} }
-			.ros-terminal { color: #00acc1; }
-			.ros-log { animation: blink 2s infinite; }
-			@keyframes blink { 50% { opacity: 0; } }
-			
-			/* Border Colors */
-			.card-python { border-left-color: #3572A5; }
-			.card-cpp    { border-left-color: #f34b7d; }
-			.card-ros    { border-left-color: #22b455; }
-			.card-control{ border-left-color: #00acc1; }
-			.card-pm     { border-left-color: #0052cc; }
-			.card-excel  { border-left-color: #1D6F42; }
+  <header id="header">
+    <div class="inner">
+      <a href="#" class="image avatar"><img src="images/Linkedin_Profile_2.png" alt="Anukool Shidhore" /></a>
+      <h1>
+        <strong>I am Anukool Shidhore</strong>,<br />
+        a Robotics Engineer &<br />
+        Project Manager<br />
+      </h1>
+      <br />
+      <h5 style="color: rgba(255, 255, 255, 0.8);">
+        Bridging <span style="color: var(--accent);">Steel</span> (Mech) <br />
+        and <span style="color: var(--accent);">Silicon</span> (AI)
+      </h5>
+    </div>
+    <footer id="footer">
+      <div class="inner">
+        <ul class="icons">
+          <li><a href="https://github.com/koolwayfinder99" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+          <li><a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+          <li><a href="mailto:anukools09@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; Anukool Shidhore</li>
+        </ul>
+      </div>
+    </footer>
+  </header>
 
-			/* --- 7. MODALS --- */
-			.modal-overlay {
-				position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-				background: rgba(255, 255, 255, 0.98);
-				display: none; justify-content: center; align-items: center; z-index: 10000;
-				backdrop-filter: blur(5px);
-				overflow-y: auto; 
-			}
-			.modal-content {
-				background: #ffffff; border: 1px solid #00acc1; padding: 40px;
-				border-radius: 10px; max-width: 700px; width: 90%; color: #555;
-				box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-				position: relative;
-				margin: 20px 0;
-			}
-			.modal-close { position: absolute; top: 15px; right: 20px; font-size: 2em; cursor: pointer; color: #00acc1; }
-			.modal-h2 { color: #00acc1; border-bottom: 2px solid #eee; padding-bottom: 15px; font-weight: 800; font-size: 1.5em; margin-bottom: 20px; }
-			.modal-h3 { color: #333; margin-top: 25px; font-weight: 700; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px; }
-			.modal-p { font-size: 1em; line-height: 1.6; color: #666; margin-bottom: 10px; }
-			.modal-tech { background: rgba(0, 172, 193, 0.1); color: #00838f; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-top: 15px; font-family: monospace; font-size: 0.9em; font-weight: bold; }
-			
-			/* --- 8. TIMELINE & CONTACT --- */
-			.timeline-item { border-left: 2px solid #00acc1; padding-left: 20px; margin-bottom: 30px; position: relative; }
-			.timeline-item::before { content: ''; width: 12px; height: 12px; background: #00acc1; border-radius: 50%; position: absolute; left: -7px; top: 0; }
-			.timeline-item .date { color: #999; font-size: 0.9em; font-style: italic; margin-bottom: 10px; }
-			
-			/* Compact Contact Section */
-			.contact-row {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 30px;
-				align-items: center;
-				background: #f9f9f9;
-				padding: 25px;
-				border-radius: 8px;
-				border-left: 4px solid #00acc1;
-			}
-			.contact-text { flex: 1; min-width: 250px; font-size: 0.95em; }
-			.contact-icons { flex: 0 0 auto; }
-			.feature-icons li { margin-bottom: 0.5em !important; display: block; }
-			.feature-icons a { border-bottom: none; font-weight: 600; }
+  <div id="main">
 
-			@media screen and (max-width: 736px) {
-				.skill-wrapper { width: 100%; max-width: 100%; }
-				#main { margin-left: 0; max-width: 100%; }
-				.contact-row { flex-direction: column; align-items: flex-start; }
-			}
-		</style>
-	</head>
-	<body class="is-preload">
-
-		<header id="header">
-				<div class="inner">
-					<a href="#" class="image avatar"><img src="images/Linkedin_Profile_2.png" alt="Anukool Shidhore" /></a>
-					<h1>
-						<strong>I am Anukool Shidhore</strong>,<br />
-						a Robotics Engineer &<br />
-						Project Manager<br />
-					</h1>
-					<br />
-					<h5 style="color: rgba(255, 255, 255, 0.8);">
-						Bridging <span style="color: #00acc1;">Steel</span> (Mech) <br />
-						and <span style="color: #00acc1;">Silicon</span> (AI)
-					</h5>
-				</div>
-				<footer id="footer">
-					<div class="inner">
-						<ul class="icons">
-							<li><a href="https://github.com/koolwayfinder99" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="mailto:anukools09@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy; Anukool Shidhore</li>
-						</ul>
-					</div>
-				</footer>
-			</header>
-
-		<div id="main">
-
-				<section id="one">
-    <header class="major">
+    <section id="one">
+      <header class="major">
         <div class="greeting-container">
-            <span class="greeting-wrapper">
-                <span class="greeting-word">Hello,</span>
-                <span class="greeting-word">Hallo,</span>
-                <span class="greeting-word">Hola,</span>
-                <span class="greeting-word">Ciao,</span>
-                <span class="greeting-word">Namaste,</span>
-                <span class="greeting-word">Hello,</span> 
-            </span>
+          <span class="greeting-wrapper">
+            <span class="greeting-word">Hello,</span>
+            <span class="greeting-word">Hallo,</span>
+            <span class="greeting-word">Hola,</span>
+            <span class="greeting-word">Ciao,</span>
+            <span class="greeting-word">Namaste,</span>
+            <span class="greeting-word">Hello,</span> 
+          </span>
         </div>
         <h2>Engineered from Steel to Silicon</h2>
-        <p style="font-weight: 600; color: #00acc1; margin-top: -0.5em; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1px;">
-            Mechatronics Engineer | Robotics R&D | Aspiring Project Manager
-        </p>
-    </header>
-
-    <p>
-        My engineering path has evolved from the heavy mechanics of <b>"Steel"</b> to the computational intelligence of <b>"Silicon."</b> Starting with a foundation in mechanical design, I realized the future of manufacturing lies in intelligence. I’m currently pursuing a double Master’s: <b>M.Sc. Mechatronics Engineering</b> at RWU Ravensburg-Weingarten (Germany) with an Erasmus+ specialization in <b>Robotics</b> at Universidad Carlos III de Madrid (Spain).
-    </p>
-    <p>
-        Surrounded by German precision and Mediterranean creativity, I’m mastering the modern robotics stack—including <b>ROS2, MoveIt, Gazebo, Docker, and Deep Learning</b>—applying it to real-world challenges such as SLAM in dynamic environments and digital twin validation. Beyond the lab, I have stress-tested my problem-solving in extreme environments, designing power systems for <b>BAJA ATVs and Mars Rovers</b>, and engineering the full autonomous stack for a racing 3D-printed boat.
-    </p>
-    <p>
-        <b>Beyond the code:</b> I believe high performance requires balance. Whether collaborating on the volleyball pitch, finding rhythm in Salsa and classical Tabla, or driving community impact initiatives, I bring a disciplined, curiosity-driven energy to every team I join.
-    </p>
-    
-    <div style="background: rgba(0, 172, 193, 0.05); padding: 1.5em; border-left: 4px solid #00acc1; border-radius: 4px; margin-bottom: 2em;">
-        <p style="margin: 0; font-size: 0.95em;">
-            <strong style="color: #00acc1;">Open to Work:</strong> I’m actively seeking Internships in <b>Robotics and Project Management</b> roles across Europe (Germany, Spain, Italy, Netherlands, Switzerland, France, Nordics). If your team is pushing the boundaries of field robotics, warehouse automation, or autonomous vehicles, let’s talk.
-        </p>
-    </div>
-
-    <p style="font-size: 0.9em; margin-bottom: 2em;">
-        <strong style="color: #333;">Technical Toolkit:</strong><br/>
-        <span style="font-family: monospace; color: #555;">ROS2 • MoveIt • Isaac Sim • Gazebo • OpenCV • SLAM • Docker • Python • C++ • Linux • Product Design</span>
-    </p>
-
-    <ul class="actions">
+      </header>
+      <p>My journey began in <b>Mechanical Engineering</b> ("Steel"), understanding the physical world of dynamics and manufacturing. I transitioned into <b>Robotics & AI</b> ("Silicon"), mastering <b>ROS2, C++, and Control Systems</b>. Today, I combine these worlds, using my <b>Project Management</b> skills to lead complex developments where hardware meets software.</p>
+      <ul class="actions">
         <li><a href="#two" class="button">See Projects</a></li>
         <li><a href="#skills-visualized" class="button primary">Explore My Stack</a></li>
-    </ul>
-</section>
+      </ul>
+    </section>
 
-				<section id="two">
-    <h2>Selected Projects</h2>
-    <div class="row">
-        <article class="col-6 col-12-xsmall work-item">
-            <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="Holonomic Robot" /></a>
-            <h3>Holonomic Omnidirectional Robot</h3>
-            <p>Derived the kinematic equations for a three-wheeled mobile platform and implemented the control model in a ROS2/Gazebo environment to optimize maneuverability for complex manipulation tasks.</p>
-        </article>
+    <section id="two">
+      <h2>Selected Projects</h2>
+      <div class="row">
         
         <article class="col-6 col-12-xsmall work-item">
-            <a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="Rover to Mars" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Rover+to+Mars'"/></a>
-            <h3>Rover to Mars (R2M)</h3>
-            <p>Directed the Power Electronics subsystem for a Mars rover prototype, designing custom battery management units and collaborating on the ROS2 navigation stack for autonomous terrain traversal.</p>
+          <a href="https://via.placeholder.com/600x400/00acc1/ffffff?text=Multi-Modal+Sensor+Fusion" class="image fit thumb">
+            <img src="https://via.placeholder.com/600x400/00acc1/ffffff?text=Multi-Modal+Sensor+Fusion" alt="Sensor Fusion" />
+          </a>
+          <h3>Multi-Modal Sensor Fusion</h3>
+          <p><b>ROS2 & C++:</b> Fused LIDAR and Radar data using Kalman Filters for 3D environment mapping and SLAM [cite: 266-272].</p>
         </article>
-        
+
         <article class="col-6 col-12-xsmall work-item">
-            <a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="SAE BAJA" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=SAE+BAJA'"/></a>
-            <h3>SAE BAJA Motorsports</h3>
-            <p>Led the Vehicle Dynamics team to top competition placements by engineering robust suspension and braking systems, validating performance through dynamic MATLAB/Simulink simulations.</p>
+          <a href="https://via.placeholder.com/600x400/00838f/ffffff?text=Generative+AI" class="image fit thumb">
+            <img src="https://via.placeholder.com/600x400/00838f/ffffff?text=Generative+AI" alt="Generative AI" />
+          </a>
+          <h3>Generative AI & CV Models</h3>
+          <p><b>Python & PyTorch:</b> Developed CNNs for object detection and deployed GANs for generative tasks on the MNIST dataset [cite: 296-301].</p>
         </article>
-        
+
         <article class="col-6 col-12-xsmall work-item">
-            <a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="3D Printed Boat" onerror="this.src='https://via.placeholder.com/600x400/eee/555?text=Autonomous+Boat'"/></a>
-            <h3>Autonomous 3D-Printed Boat</h3>
-            <p>Architected a fully autonomous marine vehicle, designing a hydrodynamic hull in Fusion 360 and integrating a custom electromechanical drive system to successfully complete race phases.</p>
+          <a href="https://via.placeholder.com/600x400/22b455/ffffff?text=Quadruped+Robot" class="image fit thumb">
+            <img src="https://via.placeholder.com/600x400/22b455/ffffff?text=Quadruped+Robot" alt="Quadruped Robot" />
+          </a>
+          <h3>Bio-Inspired Quadruped Robot</h3>
+          <p><b>SolidWorks & Kinematics:</b> Designed a SPOT-inspired robot with validated kinematic analysis (DH-Matrices) and ANSYS simulation [cite: 240-245].</p>
         </article>
-        
+
         <article class="col-6 col-12-xsmall work-item">
-            <a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="SPM Automation" /></a>
-            <h3>SPM Automation Logic</h3>
-            <p>Engineered the C++ control logic for industrial Special Purpose Machines, optimizing motion profiles to reduce production cycle times by 10% while ensuring safety compliance.</p>
+          <a href="https://via.placeholder.com/600x400/f34b7d/ffffff?text=Rover+to+Mars" class="image fit thumb">
+            <img src="https://via.placeholder.com/600x400/f34b7d/ffffff?text=Rover+to+Mars" alt="Rover to Mars" />
+          </a>
+          <h3>Rover to Mars (R2M)</h3>
+          <p><b>Power Systems & ROS:</b> Directed the Power Electronics subsystem and collaborated on the ROS navigation stack for autonomous traversal [cite: 273-282].</p>
         </article>
-        
+
         <article class="col-6 col-12-xsmall work-item">
-            <a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="AI Decision Models" /></a>
-            <h3>AI Decision Models</h3>
-            <p>Developed Python-based predictive algorithms for automated decision-making, utilizing extensive data validation techniques to increase model accuracy by 10% for scalable deployment.</p>
+          <a href="https://via.placeholder.com/600x400/0052cc/ffffff?text=EMG+Bio-Control" class="image fit thumb">
+            <img src="https://via.placeholder.com/600x400/0052cc/ffffff?text=EMG+Bio-Control" alt="EMG Bio-Control" />
+          </a>
+          <h3>Real-Time EMG Bio-Control</h3>
+          <p><b>STM32 & MATLAB:</b> Engineered a human-machine interface processing muscle signals (EMG) to control actuators in real-time [cite: 214-219].</p>
         </article>
-    </div>
-    <ul class="actions">
+
+        <article class="col-6 col-12-xsmall work-item">
+          <a href="https://via.placeholder.com/600x400/333333/ffffff?text=STM32+Mobile+Robot" class="image fit thumb">
+            <img src="https://via.placeholder.com/600x400/333333/ffffff?text=STM32+Mobile+Robot" alt="STM32 Mobile Robot" />
+          </a>
+          <h3>Autonomous Mobile Robot (Embedded)</h3>
+          <p><b>Embedded C & RTOS:</b> Developed bare-metal firmware using interrupts and PWM on STM32 for precise motion control [cite: 202-207].</p>
+        </article>
+
+      </div>
+      <ul class="actions">
         <li><a href="https://github.com/koolwayfinder99" class="button">View Github</a></li>
-    </ul>
-</section>
+      </ul>
+    </section>
 
-				<section id="skills-visualized">
-						<h2>The Code Behind the Engineer</h2>
-						<p>Click any panel to see the detailed project breakdown behind the skill.</p>
+    <section id="skills-visualized">
+      <h2>The Code Behind the Engineer</h2>
+      <p>Click any panel to see the detailed project breakdown behind the skill.</p>
+      <div class="tech-stack-container">
+        
+        <div class="skill-wrapper" onclick="openModal('modal-ros')">
+          <div class="code-card ros-terminal">
+            <div class="comment"># ROS2 Architecture</div>
+            <span class="kw">user@bot:~$</span> ros2 launch nav.py<br>
+            [<span class="type">INFO</span>] [lidar]: <span class="str">Active</span><br>
+            [<span class="type">INFO</span>] [slam]: Map Updated<br>
+            <span class="ros-log">_</span>
+          </div>
+          <div class="skill-label">Robotics Middleware</div>
+        </div>
 
-						<div class="tech-stack-container">
-							<div class="skill-wrapper" onclick="openModal('modal-ros')">
-								<div class="code-card ros-terminal">
-									<div class="comment"># ROS2 Architecture</div>
-									<span class="kw">user@bot:~$</span> ros2 launch nav.py<br>
-									[<span class="type">INFO</span>] [lidar]: <span class="str">Active</span><br>
-									[<span class="type">INFO</span>] [slam]: Map Updated<br>
-									<span class="ros-log">_</span>
-								</div>
-								<div class="skill-label">Robotics Middleware</div>
-							</div>
-							<div class="skill-wrapper" onclick="openModal('modal-python')">
-								<div class="code-card card-python">
-									<div class="comment"># Python: AI & CV</div>
-									<span class="kw">class</span> <span class="type">Engineer</span>:<br>
-									&nbsp;&nbsp;<span class="kw">def</span> <span class="func">deploy</span>(self):<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;stack = [<span class="str">"PyTorch"</span>]<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> "Ready"
-								</div>
-								<div class="skill-label">AI & Prototyping</div>
-							</div>
-							<div class="skill-wrapper" onclick="openModal('modal-cpp')">
-								<div class="code-card card-cpp">
-									<div class="comment">// C++: Real-time</div>
-									<span class="kw">struct</span> <span class="type">Arm</span> { <span class="kw">int</span> dof=6; };<br>
-									<span class="kw">void</span> <span class="func">solveIK</span>() {<br>
-									&nbsp;&nbsp;latency = <span class="num">1ms</span>;<br>
-									}
-								</div>
-								<div class="skill-label">Hardware Control</div>
-							</div>
-							<div class="skill-wrapper" onclick="openModal('modal-control')">
-								<div class="code-card card-control">
-									<div class="comment"># PID Tuning</div>
-									<div style="display:flex; justify-content:space-between;">
-										<span>Kp:1.2</span> <span>Ki:0.05</span>
-									</div>
-									<div class="scope-grid"><div class="scope-line"></div></div>
-									<div style="color: #00acc1;">Status: STABLE</div>
-								</div>
-								<div class="skill-label">Control Systems</div>
-							</div>
-							<div class="skill-wrapper" onclick="openModal('modal-pm')">
-								<div class="code-card card-pm" style="background: #eef; color: #333;">
-									<div style="margin-bottom: 5px;">
-										<span style="background:#ccc; padding:2px;">JIRA-101</span>
-										<span style="float:right; background:green; color:white; padding:2px;">DONE</span>
-									</div>
-									<h4 style="color:#333; margin:0; font-size:1.1em;">MVP Launch</h4>
-									<ul style="padding-left:15px; margin:5px 0;">
-										<li>Sprint Planning</li>
-									</ul>
-								</div>
-								<div class="skill-label">Agile Management</div>
-							</div>
-							<div class="skill-wrapper" onclick="openModal('modal-excel')">
-								<div class="code-card card-excel" style="padding:0; overflow:hidden; background: #222;">
-									<div class="excel-header">Data.xlsx</div>
-									<div class="excel-sheet">
-										<div class="excel-cell excel-row-head">1</div>
-										<div class="excel-cell">VLOOKUP</div>
-										<div class="excel-cell" style="color:#0f0;">MATCH</div>
-										
-										<div class="excel-cell excel-row-head">2</div>
-										<div class="excel-cell">PowerBI</div>
-										<div class="excel-cell" style="color:#0f0;">LINKED</div>
-									</div>
-									<div class="excel-formula" style="margin:5px;">=PIVOT(A:B)</div>
-								</div>
-								<div class="skill-label">Data Analytics</div>
-							</div>
-						</div>
-					</section>
+        <div class="skill-wrapper" onclick="openModal('modal-python')">
+          <div class="code-card card-python">
+            <div class="comment"># Python: AI & CV</div>
+            <span class="kw">class</span> <span class="type">Engineer</span>:<br>
+            &nbsp;&nbsp;<span class="kw">def</span> <span class="func">deploy</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;stack = [<span class="str">"PyTorch"</span>]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> "Ready"
+          </div>
+          <div class="skill-label">AI & Prototyping</div>
+        </div>
 
-				<section id="education">
-    <h2>Education</h2>
-    
-    <div class="timeline-item">
-        <h3>M.Sc. Mechatronics</h3>
-        <div class="date">Hochschule Ravensburg-Weingarten, Germany | Sept. 2024 - Present</div>
-        <p>
-            Specializing in the intersection of AI and hardware, with advanced coursework in Robotics and Control Systems to design intelligent, autonomous machines.
-        </p>
+        <div class="skill-wrapper" onclick="openModal('modal-cpp')">
+          <div class="code-card card-cpp">
+            <div class="comment">// C++: Real-time</div>
+            <span class="kw">struct</span> <span class="type">Arm</span> { <span class="kw">int</span> dof=6; };<br>
+            <span class="kw">void</span> <span class="func">solveIK</span>() {<br>
+            &nbsp;&nbsp;latency = <span class="num">1ms</span>;<br>
+            }
+          </div>
+          <div class="skill-label">Hardware Control</div>
+        </div>
+
+        <div class="skill-wrapper" onclick="openModal('modal-control')">
+          <div class="code-card card-control">
+            <div class="comment"># PID Tuning</div>
+            <div style="display:flex; justify-content:space-between;">
+              <span>Kp:1.2</span> <span>Ki:0.05</span>
+            </div>
+            <div class="scope-grid"><div class="scope-line"></div></div>
+            <div style="color: var(--accent);">Status: STABLE</div>
+          </div>
+          <div class="skill-label">Control Systems</div>
+        </div>
+
+        <div class="skill-wrapper" onclick="openModal('modal-pm')">
+          <div class="code-card card-pm" style="background: #eef; color: #333;">
+            <div style="margin-bottom: 5px;">
+              <span style="background:#ccc; padding:2px;">JIRA-101</span>
+              <span style="float:right; background:green; color:white; padding:2px;">DONE</span>
+            </div>
+            <h4 style="color:#333; margin:0; font-size:1.1em;">MVP Launch</h4>
+            <ul style="padding-left:15px; margin:5px 0;">
+              <li>Sprint Planning</li>
+            </ul>
+          </div>
+          <div class="skill-label">Agile Management</div>
+        </div>
+
+        <div class="skill-wrapper" onclick="openModal('modal-excel')">
+          <div class="code-card card-excel" style="padding:0; overflow:hidden; background: #222;">
+            <div class="excel-header">Data.xlsx</div>
+            <div class="excel-sheet">
+              <div class="excel-cell excel-row-head">1</div>
+              <div class="excel-cell">VLOOKUP</div>
+              <div class="excel-cell" style="color:#0f0;">MATCH</div>
+              <div class="excel-cell excel-row-head">2</div>
+              <div class="excel-cell">PowerBI</div>
+              <div class="excel-cell" style="color:#0f0;">LINKED</div>
+            </div>
+            <div class="excel-formula" style="margin:5px;">=PIVOT(A:B)</div>
+          </div>
+          <div class="skill-label">Data Analytics</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="four">
+      <h2>Get In Touch</h2>
+      <div class="row">
+        <div class="col-8 col-12-small">
+          <ul class="feature-icons">
+            <li class="icon solid fa-envelope"><a href="mailto:anukools09@gmail.com">anukools09@gmail.com</a></li>
+            <li class="icon solid fa-envelope"><a href="mailto:bestpersontohire2026@outlook.com">bestpersontohire2026@outlook.com</a></li>
+            <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank">linkedin.com/in/anukool-shidhore</a></li>
+            <li class="icon brands fa-github"><a href="https://github.com/koolwayfinder99" target="_blank">github.com/koolwayfinder99</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div id="modal-ros" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content">
+      <span class="modal-close" onclick="forceClose('modal-ros')">&times;</span>
+      <h2 class="modal-h2">Holonomic Omnidirectional Robot</h2>
+      <h3 class="modal-h3">The Problem</h3>
+      <p class="modal-p">Standard differential drive robots lack the maneuverability required for complex mobile manipulation in constrained environments.</p>
+      <div class="modal-tech">Tech: ROS2, Gazebo, Kinematics</div>
     </div>
-
-    <div class="timeline-item">
-        <h3>Erasmus+ Robotics Exchange</h3>
-        <div class="date">Universidad Carlos III de Madrid, Spain | Sept. 2025 - Present</div>
-        <p>
-            Deepening expertise in Mobile Robotics and Autonomous Systems through international collaboration and advanced research modules in a competitive environment.
-        </p>
+  </div>
+  
+  <div id="modal-python" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content">
+      <span class="modal-close" onclick="forceClose('modal-python')">&times;</span>
+      <h2 class="modal-h2">Automated Decision-Making AI</h2>
+      <h3 class="modal-h3">The Problem</h3>
+      <p class="modal-p">Legacy systems relied on manual data interpretation, which was slow and prone to errors.</p>
+      <div class="modal-tech">Tech: Python, Pandas, Scikit-Learn</div>
     </div>
-
-    <div class="timeline-item">
-        <h3>B.E. Mechanical Engineering</h3>
-        <div class="date">Savitribai Phule Pune University, India | Aug. 2019 - July 2023</div>
-        <p>
-            Established a robust foundation in Kinematics and CAD automation, leading cross-functional teams in national automotive design competitions like BAJA.
-        </p>
+  </div>
+  
+  <div id="modal-cpp" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content">
+      <span class="modal-close" onclick="forceClose('modal-cpp')">&times;</span>
+      <h2 class="modal-h2">SPM Control Optimization</h2>
+      <h3 class="modal-h3">The Problem</h3>
+      <p class="modal-p">Production cycle times for Special Purpose Machines (SPMs) needed reduction to meet high-speed automation targets.</p>
+      <div class="modal-tech">Tech: C++, Industrial Automation, Motion Control</div>
     </div>
-</section>
+  </div>
 
-				<section id="experience">
-    <h2>Experience</h2>
-    <div class="timeline-item">
-        <h3>Robotics Engineer</h3>
-        <div class="date">Wipro PARI | July 2023 - Aug 2024</div>
-        <p>
-            Led a 5-person team to deliver robotics projects with a 95% on-time deployment rate. 
-            Engineered robotic Special Purpose Machines (SPMs) using advanced CAD/CAM tools, boosting system efficiency by 15%. 
-            Developed sophisticated kinematic control logic that reduced production cycle times by 10% and resolved complex system failures, decreasing machine downtime by 20%.
-        </p>
+  <div id="modal-control" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content">
+      <span class="modal-close" onclick="forceClose('modal-control')">&times;</span>
+      <h2 class="modal-h2">Vehicle Dynamics Optimization</h2>
+      <h3 class="modal-h3">The Problem</h3>
+      <p class="modal-p">Competitive racing vehicles required superior maneuverability and stability to succeed in ATVC competitions.</p>
+      <div class="modal-tech">Tech: MATLAB/Simulink, ANSYS, Vehicle Dynamics</div>
     </div>
+  </div>
 
-    <div class="timeline-item">
-        <h3>AI Research Assistant</h3>
-        <div class="date">IBM Skills Build | Feb. 2023 - May 2023</div>
-        <p>
-            Developed four AI solutions using Python, contributing to a new architecture for automated decision-making. 
-            Executed rigorous data analysis to improve model accuracy by 10% and support critical troubleshooting. 
-            Innovated by researching five emerging AI/ML techniques, securing adoption for two new initiatives while ensuring 100% compliance with cybersecurity protocols.
-        </p>
+  <div id="modal-pm" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content">
+      <span class="modal-close" onclick="forceClose('modal-pm')">&times;</span>
+      <h2 class="modal-h2">Robotics Team Leadership</h2>
+      <h3 class="modal-h3">The Problem</h3>
+      <p class="modal-p">Delivering complex robotics projects on strict deadlines while maintaining team productivity.</p>
+      <div class="modal-tech">Tech: Agile, Stakeholder Management, KPI Tracking</div>
     </div>
-</section>
+  </div>
 
-				<section id="four">
-						<h2>Get In Touch</h2>
-						<div class="contact-row">
-							<div class="contact-text">
-								<p>
-									<strong style="color: #00acc1; text-transform: uppercase;">Open to Work</strong><br/>
-									I am actively seeking internship opportunities in <strong>Robotics</strong> and <strong>Project Management</strong> roles across Europe (specifically Germany & Spain). If you are looking for a dedicated engineer who bridges the gap between hardware and AI, I invite you to engage with me.
-								</p>
-							</div>
-							<div class="contact-icons">
-								<ul class="feature-icons">
-									<li class="icon solid fa-envelope"><a href="mailto:anukools09@gmail.com">anukools09@gmail.com</a></li>
-									<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/anukool-shidhore/" target="_blank">LinkedIn Profile</a></li>
-									<li class="icon brands fa-github"><a href="https://github.com/koolwayfinder99" target="_blank">GitHub Profile</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
-			</div>
+  <div id="modal-excel" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content">
+      <span class="modal-close" onclick="forceClose('modal-excel')">&times;</span>
+      <h2 class="modal-h2">BOM Inventory Analytics</h2>
+      <h3 class="modal-h3">The Problem</h3>
+      <p class="modal-p">Tracking the Bill of Materials (BOM) for large-scale engineering projects at Wipro PARI was complex and prone to inventory mismatches.</p>
+      <div class="modal-tech">Tech: Excel (VLOOKUP, Solver), PowerBI, Data Analytics</div>
+    </div>
+  </div>
 
-		<div id="modal-ros" class="modal-overlay" onclick="closeModal(event)">
-			<div class="modal-content">
-				<span class="modal-close" onclick="forceClose('modal-ros')">&times;</span>
-				<h2 class="modal-h2">Holonomic Omnidirectional Robot</h2>
-				<h3 class="modal-h3">The Problem</h3>
-				<p class="modal-p">Standard differential drive robots lack the maneuverability required for complex mobile manipulation in constrained environments.</p>
-				<h3 class="modal-h3">The Methodology</h3>
-				<p class="modal-p">I conducted the "Kinematic and optimal design of a three-wheeled holonomic omnidirectional robot platform". This involved deriving kinematic equations for the 3-wheel configuration and implementing them in a ROS2 environment.</p>
-				<div class="modal-tech">Tech: ROS2, Gazebo, Kinematics</div>
-			</div>
-		</div>
-		
-		<div id="modal-python" class="modal-overlay" onclick="closeModal(event)">
-			<div class="modal-content">
-				<span class="modal-close" onclick="forceClose('modal-python')">&times;</span>
-				<h2 class="modal-h2">Automated Decision-Making AI</h2>
-				<h3 class="modal-h3">The Problem</h3>
-				<p class="modal-p">Legacy systems relied on manual data interpretation, which was slow and prone to errors.</p>
-				<h3 class="modal-h3">The Methodology</h3>
-				<p class="modal-p">As an AI Research Assistant at IBM Skills Build, I developed 4 distinct AI solutions using Python. I executed data analysis on datasets to prepare and validate data, which improved model accuracy by 10%.</p>
-				<div class="modal-tech">Tech: Python, Pandas, Scikit-Learn</div>
-			</div>
-		</div>
-		
-		<div id="modal-cpp" class="modal-overlay" onclick="closeModal(event)">
-			<div class="modal-content">
-				<span class="modal-close" onclick="forceClose('modal-cpp')">&times;</span>
-				<h2 class="modal-h2">SPM Control Optimization</h2>
-				<h3 class="modal-h3">The Problem</h3>
-				<p class="modal-p">Production cycle times for Special Purpose Machines (SPMs) needed reduction to meet high-speed automation targets.</p>
-				<h3 class="modal-h3">The Methodology</h3>
-				<p class="modal-p">At Wipro PARI, I applied core robotics and kinematic principles to develop SPM control logic using C++. By optimizing the motion profiles and logic execution, I successfully reduced the production cycle time by 10%.</p>
-				<div class="modal-tech">Tech: C++, Industrial Automation, Motion Control</div>
-			</div>
-		</div>
-		
-		<div id="modal-control" class="modal-overlay" onclick="closeModal(event)">
-			<div class="modal-content">
-				<span class="modal-close" onclick="forceClose('modal-control')">&times;</span>
-				<h2 class="modal-h2">Vehicle Dynamics Optimization</h2>
-				<h3 class="modal-h3">The Problem</h3>
-				<p class="modal-p">Competitive racing vehicles required superior maneuverability and stability to succeed in ATVC competitions.</p>
-				<h3 class="modal-h3">The Methodology</h3>
-				<p class="modal-p">I led the Vehicle Dynamics Team, achieving top placements through suspension and braking system optimization. I designed the vehicle's dynamic model using engineering principles to ensure stability.</p>
-				<div class="modal-tech">Tech: MATLAB/Simulink, ANSYS, Vehicle Dynamics</div>
-			</div>
-		</div>
-		
-		<div id="modal-pm" class="modal-overlay" onclick="closeModal(event)">
-			<div class="modal-content">
-				<span class="modal-close" onclick="forceClose('modal-pm')">&times;</span>
-				<h2 class="modal-h2">Robotics Team Leadership</h2>
-				<h3 class="modal-h3">The Problem</h3>
-				<p class="modal-p">Delivering complex robotics projects on strict deadlines while maintaining team productivity.</p>
-				<h3 class="modal-h3">The Methodology</h3>
-				<p class="modal-p">I led a 5-person team at Wipro PARI to deliver robotics projects. I implemented Agile-like tracking and focused on KPI ownership (Cost, Quality, Safety).</p>
-				<div class="modal-tech">Tech: Agile, Stakeholder Management, KPI Tracking</div>
-			</div>
-		</div>
-		
-		<div id="modal-excel" class="modal-overlay" onclick="closeModal(event)">
-			<div class="modal-content">
-				<span class="modal-close" onclick="forceClose('modal-excel')">&times;</span>
-				<h2 class="modal-h2">BOM Inventory Analytics</h2>
-				<h3 class="modal-h3">The Problem</h3>
-				<p class="modal-p">Tracking the Bill of Materials (BOM) for large-scale engineering projects at Wipro PARI was complex and prone to inventory mismatches.</p>
-				<h3 class="modal-h3">The Methodology</h3>
-				<p class="modal-p">I developed a comprehensive Inventory Management system using MS Excel and PowerBI. This system tracked component usage against the BOM, visualized stock levels, and forecasted shortages.</p>
-				<div class="modal-tech">Tech: Excel (VLOOKUP, Solver), PowerBI, Data Analytics</div>
-			</div>
-		</div>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.poptrox.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  
+  <script>
+    function openModal(id) { document.getElementById(id).style.display = "flex"; }
+    function closeModal(e) { if(e.target.className === "modal-overlay") e.target.style.display = "none"; }
+    function forceClose(id) { document.getElementById(id).style.display = "none"; }
 
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.poptrox.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-		
-		<script>
-			// Modal Logic
-			function openModal(id) { document.getElementById(id).style.display = "flex"; }
-			function closeModal(e) { if(e.target.className === "modal-overlay") e.target.style.display = "none"; }
-			function forceClose(id) { document.getElementById(id).style.display = "none"; }
-			
-			// Critical Fix: Robust Loading Loop Removal
-			(function() {
-				var removePreload = function() {
-					document.body.classList.remove('is-preload');
-				};
-				
-				// 1. Try normal load event
-				window.addEventListener('load', function() {
-					setTimeout(removePreload, 200);
-				});
+    // --- FAILSAFE LOADING FIX ---
+    function removeLoading() { document.body.classList.remove('is-preload'); }
+    // Try on regular load
+    window.addEventListener('load', function() { setTimeout(removeLoading, 200); });
+    // Failsafe: Remove after 3 seconds anyway (fixes infinite loading loop)
+    setTimeout(removeLoading, 3000);
+  </script>
 
-				// 2. Fallback: If readyState is complete (e.g. cached), run immediately
-				if (document.readyState === 'complete') {
-					setTimeout(removePreload, 100);
-				}
-
-				// 3. Safety: Force remove after 3 seconds in case scripts fail
-				setTimeout(removePreload, 3000);
-			})();
-		</script>
-
-	</body>
+</body>
 </html>
